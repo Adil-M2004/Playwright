@@ -1,0 +1,11 @@
+{
+  "default": {
+    "require": [
+  "src/test/step-definitions/*.ts",
+  "src/test/step-definitions/hooks/*.ts",
+  "src/test/utils/*.ts" 
+],
+    "requireModule": ["ts-node/register"],
+    "format": ["progress", "html:reports/cucumber-report.html"]
+  }
+}
