@@ -44,11 +44,10 @@ Then('I should see the Admin page with the title Admin', async () => {
 
 //Scenario: Delete Record from Admin Page
 When('the user clicks the Trash Can delete icon on the third record in the Records Found list', async () => {
-   // await pageFixture.page.pause();
+    // await pageFixture.page.pause();
 
     await pageFixture.page.click('div.oxd-table-body > div:first-child i.oxd-icon.bi-trash'); // Click the trash can icon for the first record
     //await pageFixture.page.locator('div:nth-child(3) > .oxd-table-row > div:nth-child(6) > .oxd-table-cell-actions > button').first().click(); // Click the trash can icon for the first record
-
 });
 
 Then('the user sees a confirmation modal with the message Are you Sure?', async () => {
@@ -66,6 +65,20 @@ Then('the user no longer sees that record in the Records Found list', async () =
     const deletedRecord = pageFixture.page.locator('div.oxd-table-body > div:first-child');
     await expect(deletedRecord).not.toHaveText('Admin'); // Replace 'Admin' with the specific text of the deleted record
 });
+
+
+//Admin conneot self-deletion scenario
+When('the user clicks the Trash Can delete icon on the first record in the Records Found list', async () => {
+    await pageFixture.page.click('div.oxd-table-body > div:first-child i.oxd-icon.bi-trash'); // Click the trash can icon for the first record
+});
+
+
+Then('the page should not display the confirmation modal with the message Are you Sure?', async () => {
+    const confirmationMessage = pageFixture.page.locator('p:has-text("Are you sure?")'); // Check for the presence of the confirmation message
+    await expect(confirmationMessage).not.toBeVisible();// Should NOT be visible since the user is trying to delete their own account
+});
+
+
 
 
 

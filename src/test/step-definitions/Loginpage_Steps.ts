@@ -60,13 +60,16 @@ When('i click on the login button', async () => {
 
 });
 
-//Cucumber Expressions //STILL NEED TO IMPLEMENT
-When('I type specific name into the username field {word}', async (username: string) => {
-  console.log(username)
+//Cucumber Expressions - DYNAMIC USERNAME AND PASSWORD
+When('I type a specific name into the username field {string}', async (username: string) => {
+  const loginPage = new LoginPage(pageFixture.page); // 2. Create instance
+  await loginPage.usernameInput.fill(username);       // 3. Use locator from POM
 });
 
 When('I type a specific password into the password field {string}', async (password: string) => {
-  console.log(password)
+   const loginPage = new LoginPage(pageFixture.page); // 2. Create instance
+  await loginPage.passwordInput.fill(password);       // 3. Use locator from POM
+ // await pageFixture.page.pause();
 });
 
 
@@ -126,8 +129,6 @@ When('I reopen the application URL {string}', async (string) => {
   await pageFixture.page.goto(url);
 
 });
-
-
 
 Then('I should still be logged in and see the dashboard page with the title {string}', async (string) => {
   await pageFixture.page.waitForSelector('h6:has-text("Dashboard")'); // Wait for the dashboard title to be visible

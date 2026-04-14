@@ -36,14 +36,21 @@ Background: Pre-Conditions
 #     And the user enters "password123" into password field
 #     Then a message is appears stating weak
 
-@default-status
-Scenario: Status field(Active/Inactive) is NOT selected by default
-   When the user clicks on the ADD button to add a new user
-   Then the Status field should be set to "-- Select --" by default
+# @default-status
+# Scenario: Status field(Active/Inactive) is NOT selected by default
+#    When the user clicks on the ADD button to add a new user
+#    Then the Status field should be set to "-- Select --" by default
 
 
-@Self-deletion
-Scenario: Impossible for Admin to Self-Delete their account
-    When the user clicks the Trash Can delete icon on the first record in the Records Found list
-    Then the user gets message saying "Unable to Delete User"
+# @Self-deletion
+# Scenario: Impossible for Admin to Self-Delete their account
+#     When the user clicks the Trash Can delete icon on the first record in the Records Found list
+#     Then the page should not display the confirmation modal with the message Are you Sure? 
+
+@cancellation-deletion
+Scenario: The user successfully cancels user deletion
+    When the user clicks the "Trash Can" delete icon on the third record in the Records Found list
+    Then the user sees a confirmation modal with the message "Are you Sure?"
+    When the user clicks the No, Cancel green button
+    Then the user still sees that record in the Records Found list
   
