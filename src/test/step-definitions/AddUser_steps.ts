@@ -14,6 +14,7 @@ When('the user clicks on the ADD button to add a new user', async () => {
 });
 
 When('the user enters more than {int} characters into the username field', async (int) => {
+    // 40 Characters string being used to exceed the limit
     await pageFixture.page.getByRole('textbox').nth(2).fill('ThisIsAVeryLongUsernameExceedingTheLimittttt');
 
 });
@@ -31,10 +32,14 @@ When('the user enters {string} into password field', async (string) => {
     await pageFixture.page.getByRole('textbox').nth(3).fill(string);
 });
 
-
-//ASSERTION TO CHECK IF THE WEAK PASSWORD MESSAGE IS VISIBLE
+//ASSERTION TO CHECK IF THE WEAK PASSWORD MESSAGE IS VISIBLE - NEED WORKED ON
 Then('a message is appears stating weak', async () => {
     const weakMessage = pageFixture.page.getByText('Weak'); // Wait for the "Weak" message to be visible
     await expect(weakMessage).toBeVisible();
+});
 
+//ASSERTION TO CHECK IF STATUS FIELD IS DEFAULTED TO "-- Select --"
+Then('the Status field should be set to {string} by default', async (string) => {
+    const statusField = pageFixture.page.locator('.oxd-select-text').first();
+    await expect(statusField).toHaveText(string);
 });

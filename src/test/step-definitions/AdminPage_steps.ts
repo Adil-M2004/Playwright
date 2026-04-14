@@ -43,7 +43,7 @@ Then('I should see the Admin page with the title Admin', async () => {
 
 
 //Scenario: Delete Record from Admin Page
-When('the user clicks the Trash Can delete icon on the first record in the Records Found list', async () => {
+When('the user clicks the Trash Can delete icon on the third record in the Records Found list', async () => {
    // await pageFixture.page.pause();
 
     await pageFixture.page.click('div.oxd-table-body > div:first-child i.oxd-icon.bi-trash'); // Click the trash can icon for the first record
@@ -65,7 +65,6 @@ Then('the user no longer sees that record in the Records Found list', async () =
     // assertionm to confirm record is NOT Visible
     const deletedRecord = pageFixture.page.locator('div.oxd-table-body > div:first-child');
     await expect(deletedRecord).not.toHaveText('Admin'); // Replace 'Admin' with the specific text of the deleted record
-    
 });
 
 
