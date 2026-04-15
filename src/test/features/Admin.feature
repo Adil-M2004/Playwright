@@ -1,16 +1,8 @@
-@regression
+@regression2
 Feature: Admin Functionality
 
   Background: Pre-Conditions
-    Given I navigate to the login URL "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
-    When I click on the username field
-    And I type "Admin" into the username field
-    And the username field should contain "Admin"
-    When I click on the password field
-    And I type "admin123" into the password field
-    And i click on the login button
-    Then I should be logged in and see the dashboard page with the title "Dashboard"
-    When I click the Admin button on the sidebar
+    Given I login as an admin
 
   @admin_title
   Scenario: Validate Admin Page Title
@@ -22,6 +14,25 @@ Feature: Admin Functionality
     Then the user sees a confirmation modal with the message Are you Sure?
     When the user clicks the Yes, Delete red button
     Then the user no longer sees that record in the Records Found list
+
+  @Self-deletion
+  Scenario: Impossible for Admin to Self-Delete their account
+    When the user clicks the Trash Can delete icon on the first record in the Records Found list
+    Then the page should not display the confirmation modal with the message Are you Sure?
+
+  @cancel-deletion
+  Scenario: The user successfully cancels user deletion
+    When the user clicks the Trash Can delete icon on the third record in the Records Found list
+    Then the user sees a confirmation modal with the message Are you Sure?
+    When the user clicks the No, Cancel green button
+    Then the user still sees that record in the Records Found list
+
+  @bulk-deletion
+  Scenario: Bulk deletion of 3 users
+    When the user clicks on the checkboxes for the first 5 records under Records Found
+    And the user clicks Delete Selected button
+    Then the user sees a confirmation modal with the message Are you Sure?
+    And the user clicks the Yes, Delete red button
 
   @max-characters
   Scenario: User is informed about the maximum username length
@@ -40,14 +51,13 @@ Feature: Admin Functionality
     When the user clicks on the ADD button to add a new user
     Then the Status field should be set to "-- Select --" by default
 
-  @Self-deletion
-  Scenario: Impossible for Admin to Self-Delete their account
-    When the user clicks the Trash Can delete icon on the first record in the Records Found list
-    Then the page should not display the confirmation modal with the message Are you Sure?
-
-  @cancellation-deletion
-  Scenario: The user successfully cancels user deletion
-    When the user clicks the "Trash Can" delete icon on the third record in the Records Found list
-    Then the user sees a confirmation modal with the message "Are you Sure?"
-    When the user clicks the No, Cancel green button
-    Then the user still sees that record in the Records Found list
+  # @user-creation
+  # Scenario: Admin creates a new user with all required fields filled
+  #   When the user clicks on the ADD button to add a new user
+  #   Then the user sees the form for adding a user
+  #   When the user checks all the required checkboxes on the form
+  #   And the user types "John Doe" into the Employee name field
+  #   And the user types "new_user1" into the Username field
+  #   And the user types "user123passTest" into the password field
+  #   And the user clicks the Save button
+  #   Then the user should see the new user "new_user1" under the Records Found list

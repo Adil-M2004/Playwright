@@ -4,23 +4,60 @@ import { faker } from '@faker-js/faker';
 import { expect } from 'playwright/test';
 import { Browser, chromium } from "@playwright/test";
 import { LoginPage } from "../pages/LoginPage"; // 1. Import it
+import { NavigationPage } from "../pages/NavigationPage";
 
 
 let browser: Browser;
 const url = 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'; //URL for login page(OrangeHRM demo site)
 
 
-Given('I navigate to the login URL {string}', async (string) => {
+Given('I navigate to the login page', async () => {
   //Access URL
   await pageFixture.page.goto(url);
 });
 
+//PRE-CONDITION
+Given('I login as an admin', async () => {
+  //LOG-IN AS ADMIN
+
+  //naviagte to URL
+  await pageFixture.page.goto(url);
+
+  //Click Username field
+  const username_box = pageFixture.page.getByRole('textbox', { name: 'Username' })
+  await username_box.click();
+
+  //Insert username "Admin"
+  const loginPage = new LoginPage(pageFixture.page); // 2. Create instance
+  await loginPage.usernameInput.fill("Admin");       // 3. Use locator from POM
+
+  //Click password field
+  const password_box = pageFixture.page.getByRole('textbox', { name: 'Password' })
+  await password_box.click();
+
+  //Insert password "admin123"
+  const loginPage2 = new LoginPage(pageFixture.page); // 2. Create instance
+  await loginPage2.passwordInput.fill("admin123");       // 3. Use locator from POM
+
+  //Click Login Button
+  const login_button = pageFixture.page.getByRole('button', { name: 'Login' });
+  await login_button.click();
+
+  //Click the Admin Button
+    await pageFixture.page.click('a:has-text("Admin")');
+    //  const adminHeader = pageFixture.page.locator("//h6[contains(@class, 'oxd-topbar-header-breadcrumb-module') and text()='Admin']");
+    //  await adminHeader.click();
+  
+
+});//END OF GIVEN
 
 When('I click on the username field', async () => {
   //await page.pause();
   const username_box = await pageFixture.page.getByRole('textbox', { name: 'Username' })
   await username_box.click();
+
 });
+
 
 When('I type {string} into the username field', async (string) => {
   // const username_box = await pageFixture.page.getByRole('textbox', { name: 'Username' })
@@ -67,9 +104,9 @@ When('I type a specific name into the username field {string}', async (username:
 });
 
 When('I type a specific password into the password field {string}', async (password: string) => {
-   const loginPage = new LoginPage(pageFixture.page); // 2. Create instance
+  const loginPage = new LoginPage(pageFixture.page); // 2. Create instance
   await loginPage.passwordInput.fill(password);       // 3. Use locator from POM
- // await pageFixture.page.pause();
+  // await pageFixture.page.pause();
 });
 
 

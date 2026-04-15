@@ -1,29 +1,15 @@
 {
-  "compilerOptions": {
-    /* Language and Environment */
-    "target": "ES2022",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-
-    /* Build Preferences */
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "removeComments": true,
-    "sourceMap": true,
-
-    /* Strictness - Highly Recommended */
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-
-    /* Interop Constraints */
-    "esModuleInterop": true,
-    "isolatedModules": true,
-    "resolveJsonModule": true
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+    "compilerOptions": {
+        "target": "ES2025",
+        "module": "commonjs",
+        "strict": true,
+        "types": ["node", "@cucumber/cucumber"], // 👈 Add "node" here
+        "esModuleInterop": true,
+    },
+    "include": [
+        "src/test/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
 }

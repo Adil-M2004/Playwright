@@ -21,4 +21,6 @@ const common = `./src/test/features/*.feature \
 
   //Get the third command-line argument and assign i to the profile
   //i.e. smoke, regression etc
-  const profile = process.argv[2];
+
+  //NOT WORKING AT THE MOMENT (ERROR)
+  //const profile = process.argv[2];

@@ -5,7 +5,7 @@ import { NavigationPage } from "../pages/NavigationPage";
 
 
 
-Then('I should be logged in and see the dashboard page with the title {string}', async (string) => {
+Then('I should be logged in and see the dashboard page with the title Dashboard', async (string) => {
     await pageFixture.page.waitForSelector('h6:has-text("Dashboard")'); // Wait for the dashboard title to be visible
 
     //Retrieve all the current open pages (tabs)
@@ -36,6 +36,7 @@ Then('I should see a Required message for the password field', async () => {
     await expect(passwordRequired).toBeVisible();
 });
 
+//XPATH Locator
 Then('I should see the Admin page with the title Admin', async () => {
     const adminHeader = pageFixture.page.locator("//h6[contains(@class, 'oxd-topbar-header-breadcrumb-module') and text()='Admin']");
     await expect(adminHeader).toBeVisible();
@@ -46,7 +47,7 @@ Then('I should see the Admin page with the title Admin', async () => {
 When('the user clicks the Trash Can delete icon on the third record in the Records Found list', async () => {
     // await pageFixture.page.pause();
 
-    await pageFixture.page.click('div.oxd-table-body > div:first-child i.oxd-icon.bi-trash'); // Click the trash can icon for the first record
+    await pageFixture.page.locator('div.oxd-table-body i.oxd-icon.bi-trash').nth(2).click(); // Click third record
     //await pageFixture.page.locator('div:nth-child(3) > .oxd-table-row > div:nth-child(6) > .oxd-table-cell-actions > button').first().click(); // Click the trash can icon for the first record
 });
 
@@ -69,7 +70,7 @@ Then('the user no longer sees that record in the Records Found list', async () =
 
 //Admin conneot self-deletion scenario
 When('the user clicks the Trash Can delete icon on the first record in the Records Found list', async () => {
-    await pageFixture.page.click('div.oxd-table-body > div:first-child i.oxd-icon.bi-trash'); // Click the trash can icon for the first record
+    await pageFixture.page.locator('div.oxd-table-body i.oxd-icon.bi-trash').nth(0).click(); // Click first record
 });
 
 
@@ -77,6 +78,42 @@ Then('the page should not display the confirmation modal with the message Are yo
     const confirmationMessage = pageFixture.page.locator('p:has-text("Are you sure?")'); // Check for the presence of the confirmation message
     await expect(confirmationMessage).not.toBeVisible();// Should NOT be visible since the user is trying to delete their own account
 });
+
+
+When('the user clicks the No, Cancel green button', async () => {
+    await pageFixture.page.getByRole('button', { name: 'No, Cancel' }).click();
+
+});
+
+
+
+Then('the user still sees that record in the Records Found list', async () => {
+
+
+});
+
+//BULK DELETION
+
+When('the user clicks on the checkboxes for the first {int} records under Records Found', async (int) => {
+    //uses LOOP TO CHECK BOXES 2ND TO FIFTH
+    const rowStart = 1; // 2nd row
+    const rowEnd = 4;   // 5th row
+
+    for (let i = rowStart; i <= rowEnd; i++) {
+        await pageFixture.page
+            .locator('.oxd-table-card')
+            .nth(i)
+            .locator('.oxd-checkbox-input')
+            .click();
+    }
+});
+
+
+When('the user clicks Delete Selected button', async () => {
+   // await pageFixture.page.pause();
+   await pageFixture.page.getByRole('button', { name: ' Delete Selected' }).click();
+});
+
 
 
 

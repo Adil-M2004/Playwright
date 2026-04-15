@@ -43,3 +43,16 @@ Then('the Status field should be set to {string} by default', async (string) => 
     const statusField = pageFixture.page.locator('.oxd-select-text').first();
     await expect(statusField).toHaveText(string);
 });
+
+//ADD USER - INCOMPLETE
+
+Then('the user sees the form for adding a user', async () => {
+    const addUser = pageFixture.page.getByRole('heading', { name: 'Add User' });
+    await expect(addUser).toBeVisible();
+});
+
+
+
+
+
+
