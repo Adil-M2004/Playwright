@@ -26,7 +26,6 @@ Then('the user sees a validation message for the username field', async () => {
 });
 
 
-
 //Passowrd Secuity Validation*******************************************
 When('the user enters {string} into password field', async (string) => {
     await pageFixture.page.getByRole('textbox').nth(3).fill(string);

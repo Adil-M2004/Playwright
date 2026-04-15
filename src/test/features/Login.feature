@@ -1,4 +1,4 @@
-@regression1
+@regression
 Feature: Login to OrangeHRM
 
   Background: Pre-Conditions
@@ -12,7 +12,6 @@ Feature: Login to OrangeHRM
     And I type a specific password into the password field "admin123"
     And i click on the login button
     Then I should see a validation message saying Invalid credentials
-
 
   @login
   Scenario: Login with valid credentials as Admin

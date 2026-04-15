@@ -1,4 +1,4 @@
-@regression2
+@regression1
 Feature: Admin Functionality
 
   Background: Pre-Conditions
