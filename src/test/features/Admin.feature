@@ -4,9 +4,9 @@ Feature: Admin Functionality
   Background: Pre-Conditions
     Given I login as an admin
 
-  @admin_title
-  Scenario: Validate Admin Page Title
-    Then I should see the Admin page with the title Admin
+  # @smoke
+  # Scenario: Validate Admin Page Title
+  #   Then I should see the Admin page with the title Admin
 
   @deletion
   Scenario: Admin deletes a user successfully

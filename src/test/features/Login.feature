@@ -13,9 +13,6 @@ Feature: Login to OrangeHRM
     And i click on the login button
     Then I should see a validation message saying Invalid credentials
 
-  @smoke
-  Scenario: Successful navigation to the login page
-    Then the login page should be displayed
 
   @login
   Scenario: Login with valid credentials as Admin

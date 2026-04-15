@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cucumberWithTS": "cucumber-js src/test/features/*.feature --require-module ts-node/register --require src/test/step-definitions/**/**/*.ts --require src/test/utils/cucumber-timeout.ts -f json:./reports/report.json --tags @bulk-deletion",
+    "cucumberWithTS": "cucumber-js src/test/features/*.feature --require-module ts-node/register --require src/test/step-definitions/**/**/*.ts --require src/test/utils/cucumber-timeout.ts -f json:./reports/report.json",
     "precucumber": "rimraf reports && mkdir reports"
   },
   "keywords": [],
