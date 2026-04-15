@@ -14,34 +14,29 @@ Feature: Admin Functionality
     When the user clicks the Trash Can delete icon of username Admin
     Then the page should not display the confirmation modal with the message Are you Sure?
 
-
   Scenario: The user successfully cancels user deletion
     When the user clicks the Trash Can delete icon on the third record in the Records Found list
     Then the user sees a confirmation modal with the message Are you Sure?
     When the user clicks the No, Cancel green button
     Then the user still sees that record in the Records Found list
 
-  @smoke @ignore
   Scenario: Bulk deletion of 3 users
     When the user clicks on the checkboxes for the first 5 records under Records Found
     And the user clicks Delete Selected button
     Then the user sees a confirmation modal with the message Are you Sure?
     And the user clicks the Yes, Delete red button
 
-  
+  @smoke
   Scenario: User is informed about the maximum username length
     When the user clicks on the ADD button to add a new user
     And the user enters more than 40 characters into the username field
     Then the user sees a validation message for the username field
 
- 
   Scenario: password field enforce security
     When the user clicks on the ADD button to add a new user
     And the user enters "password123" into password field
     Then a message is appears stating weak
 
- 
   Scenario: Status field(Active/Inactive) is NOT selected by default
     When the user clicks on the ADD button to add a new user
     Then the Status field should be set to "-- Select --" by default
-

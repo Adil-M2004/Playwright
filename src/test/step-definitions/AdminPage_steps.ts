@@ -149,7 +149,6 @@ When('the user clicks on the checkboxes for the first {int} records under Record
 
 
 When('the user clicks Delete Selected button', async () => {
-   await pageFixture.page.pause();
    await pageFixture.page.getByRole('button', { name: ' Delete Selected' }).click();
 });
 
