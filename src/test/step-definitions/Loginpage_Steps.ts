@@ -1,11 +1,10 @@
 import { Given, When, Then } from '@cucumber/cucumber';
 import { pageFixture } from './hooks/browserContextFixture';
-import { config } from './hooks/config'; // Import the config we just made
+import { config, pass } from './hooks/config'; // Import the config 
 import { faker } from '@faker-js/faker';
 import { expect } from 'playwright/test';
 import { Browser, chromium } from "@playwright/test";
 import { LoginPage } from "../pages/LoginPage"; // 1. Import it
-import { NavigationPage } from "../pages/NavigationPage";
 
 
 let browser: Browser;
@@ -38,7 +37,7 @@ Given('I login as an admin', async () => {
 
   //Insert password "admin123"
   const loginPage2 = new LoginPage(pageFixture.page); // 2. Create instance
-  await loginPage2.passwordInput.fill("admin123");       // 3. Use locator from POM
+  await loginPage2.passwordInput.fill(pass.password);       // 3. Use locator from POM
 
   //Click Login Button
   const login_button = pageFixture.page.getByRole('button', { name: 'Login' });

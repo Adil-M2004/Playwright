@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1449680800
+              "duration": 771519500
             }
           },
           {
@@ -23,11 +23,11 @@
             "line": 5,
             "name": "I navigate to the login page",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:15"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:14"
             },
             "result": {
               "status": "passed",
-              "duration": 818566100
+              "duration": 985321600
             }
           },
           {
@@ -36,11 +36,11 @@
             "line": 9,
             "name": "I click on the username field",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:55"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:54"
             },
             "result": {
               "status": "passed",
-              "duration": 446085499
+              "duration": 982768100
             }
           },
           {
@@ -49,11 +49,11 @@
             "line": 10,
             "name": "I type a specific name into the username field \"Admin11\"",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:102"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:101"
             },
             "result": {
               "status": "passed",
-              "duration": 11153899
+              "duration": 12499600
             }
           },
           {
@@ -62,11 +62,11 @@
             "line": 11,
             "name": "I click on the password field",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:80"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:79"
             },
             "result": {
               "status": "passed",
-              "duration": 37378099
+              "duration": 36899499
             }
           },
           {
@@ -75,11 +75,11 @@
             "line": 12,
             "name": "I type a specific password into the password field \"admin123\"",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:107"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:106"
             },
             "result": {
               "status": "passed",
-              "duration": 8200800
+              "duration": 10038499
             }
           },
           {
@@ -88,11 +88,11 @@
             "line": 13,
             "name": "i click on the login button",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:95"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:94"
             },
             "result": {
               "status": "passed",
-              "duration": 41533100
+              "duration": 37004300
             }
           },
           {
@@ -101,11 +101,11 @@
             "line": 14,
             "name": "I should see a validation message saying Invalid credentials",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:135"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:134"
             },
             "result": {
               "status": "passed",
-              "duration": 877495199
+              "duration": 3664577399
             }
           },
           {
@@ -113,7 +113,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 489843800
+              "duration": 488656999
             }
           }
         ],
@@ -141,7 +141,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 772608400
+              "duration": 803883499
             }
           },
           {
@@ -150,11 +150,11 @@
             "line": 5,
             "name": "I navigate to the login page",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:15"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:14"
             },
             "result": {
               "status": "passed",
-              "duration": 741373999
+              "duration": 906271500
             }
           },
           {
@@ -163,11 +163,11 @@
             "line": 18,
             "name": "I click on the username field",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:55"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:54"
             },
             "result": {
               "status": "passed",
-              "duration": 357914699
+              "duration": 431445399
             }
           },
           {
@@ -176,11 +176,11 @@
             "line": 19,
             "name": "I type \"Admin\" into the username field",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:63"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:62"
             },
             "result": {
               "status": "passed",
-              "duration": 8756300
+              "duration": 9020800
             }
           },
           {
@@ -189,11 +189,11 @@
             "line": 20,
             "name": "the username field should contain \"Admin\"",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:72"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:71"
             },
             "result": {
               "status": "passed",
-              "duration": 5005699
+              "duration": 6513699
             }
           },
           {
@@ -202,11 +202,11 @@
             "line": 21,
             "name": "I click on the password field",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:80"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:79"
             },
             "result": {
               "status": "passed",
-              "duration": 35511099
+              "duration": 32768899
             }
           },
           {
@@ -215,11 +215,11 @@
             "line": 22,
             "name": "I type \"admin123\" into the password field",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:86"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:85"
             },
             "result": {
               "status": "passed",
-              "duration": 6570499
+              "duration": 7352799
             }
           },
           {
@@ -228,11 +228,11 @@
             "line": 23,
             "name": "i click on the login button",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:95"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:94"
             },
             "result": {
               "status": "passed",
-              "duration": 41759800
+              "duration": 42221199
             }
           },
           {
@@ -245,7 +245,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 931002599
+              "duration": 2888243900
             }
           },
           {
@@ -253,7 +253,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 428860999
+              "duration": 450463200
             }
           }
         ],
@@ -281,7 +281,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 682845499
+              "duration": 714993599
             }
           },
           {
@@ -290,11 +290,11 @@
             "line": 5,
             "name": "I navigate to the login page",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:15"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:14"
             },
             "result": {
               "status": "passed",
-              "duration": 728420300
+              "duration": 705258300
             }
           },
           {
@@ -303,11 +303,11 @@
             "line": 28,
             "name": "I click on the username field",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:55"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:54"
             },
             "result": {
               "status": "passed",
-              "duration": 892571100
+              "duration": 854431300
             }
           },
           {
@@ -316,11 +316,11 @@
             "line": 29,
             "name": "I type \"Admin\" into the username field",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:63"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:62"
             },
             "result": {
               "status": "passed",
-              "duration": 7493099
+              "duration": 10109700
             }
           },
           {
@@ -329,11 +329,11 @@
             "line": 30,
             "name": "the username field should contain \"Admin\"",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:72"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:71"
             },
             "result": {
               "status": "passed",
-              "duration": 7531500
+              "duration": 5533200
             }
           },
           {
@@ -342,11 +342,11 @@
             "line": 31,
             "name": "i click on the login button",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:95"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:94"
             },
             "result": {
               "status": "passed",
-              "duration": 32695200
+              "duration": 34501499
             }
           },
           {
@@ -359,7 +359,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 13656599
+              "duration": 12766899
             }
           },
           {
@@ -367,7 +367,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 373601200
+              "duration": 412311300
             }
           }
         ],
@@ -395,7 +395,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 660143100
+              "duration": 635077700
             }
           },
           {
@@ -404,11 +404,11 @@
             "line": 5,
             "name": "I navigate to the login page",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:15"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:14"
             },
             "result": {
               "status": "passed",
-              "duration": 698711999
+              "duration": 710377399
             }
           },
           {
@@ -417,11 +417,11 @@
             "line": 36,
             "name": "i click on the login button",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:95"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:94"
             },
             "result": {
               "status": "passed",
-              "duration": 356738500
+              "duration": 446860399
             }
           },
           {
@@ -430,11 +430,11 @@
             "line": 37,
             "name": "I should see a validation message saying Required",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:141"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:140"
             },
             "result": {
               "status": "passed",
-              "duration": 15825600
+              "duration": 44593600
             }
           },
           {
@@ -442,7 +442,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 398007099
+              "duration": 383218099
             }
           }
         ],
@@ -470,7 +470,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 667508699
+              "duration": 673990200
             }
           },
           {
@@ -479,11 +479,11 @@
             "line": 5,
             "name": "I navigate to the login page",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:15"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:14"
             },
             "result": {
               "status": "passed",
-              "duration": 797108400
+              "duration": 683341700
             }
           },
           {
@@ -492,11 +492,11 @@
             "line": 41,
             "name": "I click the Forget your password? link",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:176"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:175"
             },
             "result": {
               "status": "passed",
-              "duration": 480098000
+              "duration": 549268199
             }
           },
           {
@@ -505,11 +505,11 @@
             "line": 42,
             "name": "i should see a modal to reset password",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:181"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:180"
             },
             "result": {
               "status": "passed",
-              "duration": 395756900
+              "duration": 398388699
             }
           },
           {
@@ -517,7 +517,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 382954099
+              "duration": 392795199
             }
           }
         ],

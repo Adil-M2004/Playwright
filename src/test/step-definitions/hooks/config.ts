@@ -4,5 +4,9 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 export const config = {
-    url: process.env.URL || 'https://default-url.com',
+    url: process.env.URL || 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
+};
+
+export const pass = {
+    password: process.env.PASSWORD || "admin123",
 };
