@@ -47,4 +47,4 @@ exec(command, { encoding: 'utf-8'}, (error: Error | null, stdout: string)=>{
       //throw a new error with a simple mssage
       throw new Error('⚠️ 💥 Some automation test(s) have failed! - Please review. ⚠️ 💥 ')
     }
-})
+});
