@@ -14,7 +14,6 @@ Feature: Login to OrangeHRM
     Then I should see a validation message saying Invalid credentials
 
 
-  @smoke
   Scenario: Login with valid credentials as Admin
     When I click on the username field
     And I type "Admin" into the username field

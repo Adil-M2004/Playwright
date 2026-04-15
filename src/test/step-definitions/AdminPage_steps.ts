@@ -113,7 +113,7 @@ Then('the user still sees that record in the Records Found list', async () => {
 
 //BULK DELETION
 When('the user clicks on the checkboxes for the first {int} records under Records Found', async (int) => {
-     //CHECK TO SEE IF ATOLEAST 5 ROWS ARE AVAILABLE
+     //CHECK TO SEE IF ATOLEAST 4 ROWS ARE AVAILABLE
 
     // 1. Locate all data rows
   const rows = pageFixture.page.locator('div.oxd-table-body > div.oxd-table-card');
@@ -141,8 +141,7 @@ When('the user clicks on the checkboxes for the first {int} records under Record
     } 
 
     } else {
-        console.log("test connot run due to insufficient records")
-        
+        throw new Error("CRITICAL FAILURE: Not ENOUGH records found. Cannot proceed with deletion.");
     }
 
   });
@@ -150,7 +149,7 @@ When('the user clicks on the checkboxes for the first {int} records under Record
 
 
 When('the user clicks Delete Selected button', async () => {
-   // await pageFixture.page.pause();
+   await pageFixture.page.pause();
    await pageFixture.page.getByRole('button', { name: ' Delete Selected' }).click();
 });
 

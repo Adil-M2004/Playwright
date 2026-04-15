@@ -8,7 +8,7 @@ Feature: Admin Functionality
   # Scenario: Validate Admin Page Title
   #   Then I should see the Admin page with the title Admin
 
-  @smoke
+
   Scenario: Admin deletes a user successfully
     When the user clicks the Trash Can delete icon on the third record in the Records Found list
     Then the user sees a confirmation modal with the message Are you Sure?
@@ -26,7 +26,7 @@ Feature: Admin Functionality
     When the user clicks the No, Cancel green button
     Then the user still sees that record in the Records Found list
 
-
+  @smoke
   Scenario: Bulk deletion of 3 users
     When the user clicks on the checkboxes for the first 5 records under Records Found
     And the user clicks Delete Selected button

@@ -5,7 +5,7 @@ This playwright project included Gherkin Test cases which tests a web applicatio
 _________________________________________________________________
 Prerequisites - 
 
-- Node.js: Version 18 or higher.
+- Node.js: Version 20 or higher.
 
 - Package Manager: npm, node.
 
@@ -24,6 +24,7 @@ _______________________________________________________________
 **IMPORTANT NOTICE**
 Sometimes Test(s) can fail due to:
 - The website (OrangeHRM) changing lanuages (Chinese, german etc....)
+- Insufficient amount of records available for test to run
 
 REPORTS
 __________________________
