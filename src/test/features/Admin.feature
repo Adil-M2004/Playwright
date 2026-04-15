@@ -13,11 +13,11 @@ Feature: Admin Functionality
     When the user clicks the Trash Can delete icon on the third record in the Records Found list
     Then the user sees a confirmation modal with the message Are you Sure?
     When the user clicks the Yes, Delete red button
-    #Then the user no longer sees that record in the Records Found list
+    Then the user no longer sees that record in the Records Found list
 
-  @Self-deletion
+  @self-deletion
   Scenario: Impossible for Admin to Self-Delete their account
-    When the user clicks the Trash Can delete icon on the first record in the Records Found list
+    When the user clicks the Trash Can delete icon of username Admin
     Then the page should not display the confirmation modal with the message Are you Sure?
 
   @cancel-deletion

@@ -40,6 +40,11 @@ Feature: Login to OrangeHRM
     When i click on the login button
     Then I should see a validation message saying Required
 
+  @password-reset
+  Scenario: Password reset modal shows up properly
+    When I click the Forget your password? link
+    Then i should see a modal to reset password
+
 
 # #TEST 5 - TEST FAILS FOR UNKNOWN REASON
 #   @session

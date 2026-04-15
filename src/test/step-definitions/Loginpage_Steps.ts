@@ -44,10 +44,10 @@ Given('I login as an admin', async () => {
   await login_button.click();
 
   //Click the Admin Button
-    await pageFixture.page.click('a:has-text("Admin")');
-    //  const adminHeader = pageFixture.page.locator("//h6[contains(@class, 'oxd-topbar-header-breadcrumb-module') and text()='Admin']");
-    //  await adminHeader.click();
-  
+  await pageFixture.page.click('a:has-text("Admin")');
+  //  const adminHeader = pageFixture.page.locator("//h6[contains(@class, 'oxd-topbar-header-breadcrumb-module') and text()='Admin']");
+  //  await adminHeader.click();
+
 
 });//END OF GIVEN
 
@@ -170,6 +170,18 @@ When('I reopen the application URL {string}', async (string) => {
 Then('I should still be logged in and see the dashboard page with the title {string}', async (string) => {
   await pageFixture.page.waitForSelector('h6:has-text("Dashboard")'); // Wait for the dashboard title to be visible
 
+});
+
+//PASSWORD RESET MODAL
+When('I click the Forget your password? link', async () => {
+  await pageFixture.page.getByText('Forgot your password?').click();
+
+});
+
+Then('i should see a modal to reset password', async () => {
+ // await pageFixture.page.pause();
+  const resetPassword_title = pageFixture.page.getByRole('heading', { name: 'Reset Password' });
+  await expect(resetPassword_title).toBeVisible();
 });
 
 
