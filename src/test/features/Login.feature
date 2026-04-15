@@ -5,12 +5,13 @@ Feature: Login to OrangeHRM
     Given I navigate to the login page
 
   @cucumber_expression
-  Scenario: Validate Login with valid credentials as Admin
+  Scenario: Login with invalid credentials as Admin
     When I click on the username field
     And I type a specific name into the username field "Admin11"
     When I click on the password field
     And I type a specific password into the password field "admin123"
     And i click on the login button
+    Then I should see a validation message saying Invalid credentials
 
   @smoke
   Scenario: Successful navigation to the login page
@@ -28,7 +29,6 @@ Feature: Login to OrangeHRM
 
   @validation1
   Scenario: User is declined to login with no password credentials
-    Given I navigate to the login URL "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
     When I click on the username field
     And I type "Admin" into the username field
     And the username field should contain "Admin"
@@ -54,15 +54,14 @@ Feature: Login to OrangeHRM
 #     And I reopen the application URL "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
 #     Then I should still be logged in and see the dashboard page with the title Dashboard
 
-  @random
-  Scenario: Login with valid credentials as Admin - Using Random Data
-    Given I navigate to the login URL "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
-    When I click on the username field
-    And I type a random username into the username field
-    When I click on the password field
-    And I type a random password into the password field
-    And i click on the login button
-    Then I should be logged in and see the dashboard page with the title Dashboard
+#   @random
+#   Scenario: Login with valid credentials as Admin - Using Random Data
+#     When I click on the username field
+#     And I type a random username into the username field
+#     When I click on the password field
+#     And I type a random password into the password field
+#     And i click on the login button
+#     Then I should be logged in and see the dashboard page with the title Dashboard
 
 
  

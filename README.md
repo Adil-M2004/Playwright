@@ -18,3 +18,8 @@ IMPORTANT NOTICE:
 Sometimes Test(s) can fail due to:
 - The website (OrangeHRM) changing lanuages (Chinese, german etc....)
 - Not enough records for deletion
+
+REPORTS
+__________________________
+To run reports on test(s) insert following at the end of "cucumberWithTS" in "package.json"
+- -f json:./reports/report.json

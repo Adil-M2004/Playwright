@@ -5,7 +5,7 @@ import { NavigationPage } from "../pages/NavigationPage";
 
 
 
-Then('I should be logged in and see the dashboard page with the title Dashboard', async (string) => {
+Then('I should be logged in and see the dashboard page with the title Dashboard', async () => {
     await pageFixture.page.waitForSelector('h6:has-text("Dashboard")'); // Wait for the dashboard title to be visible
 
     //Retrieve all the current open pages (tabs)
