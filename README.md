@@ -16,7 +16,7 @@ If you want to exectue Only ONE SCENARIO or Only ONE feature file, The Command f
 
 - npm run cucumber <tag_name>
 
-**REPLACE <tag_name> with tag that is included in src/index.ts**
+**REPLACE <tag_name> with a tag that is included in src/index.ts & in any of the feature files**
 **NEW TAG MUST BE DECLARED IN INDEX.TS BEFORE USE**
 
 
