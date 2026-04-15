@@ -1,5 +1,6 @@
 import { Given, When, Then } from '@cucumber/cucumber';
 import { pageFixture } from './hooks/browserContextFixture';
+import { config } from './hooks/config'; // Import the config we just made
 import { faker } from '@faker-js/faker';
 import { expect } from 'playwright/test';
 import { Browser, chromium } from "@playwright/test";
@@ -8,12 +9,12 @@ import { NavigationPage } from "../pages/NavigationPage";
 
 
 let browser: Browser;
-const url = 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'; //URL for login page(OrangeHRM demo site)
+//const url = 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'; //URL for login page(OrangeHRM demo site)
 
 
 Given('I navigate to the login page', async () => {
-  //Access URL
-  await pageFixture.page.goto(url);
+  //await pageFixture.page.goto(url);
+  await pageFixture.page.goto(config.url);
 });
 
 //PRE-CONDITION
@@ -21,7 +22,7 @@ Given('I login as an admin', async () => {
   //LOG-IN AS ADMIN
 
   //naviagte to URL
-  await pageFixture.page.goto(url);
+  await pageFixture.page.goto(config.url);
 
   //Click Username field
   const username_box = pageFixture.page.getByRole('textbox', { name: 'Username' })
@@ -163,8 +164,7 @@ When('I reopen the application URL {string}', async (string) => {
   browser = await chromium.launch({ headless: false });
   pageFixture.context = await browser.newContext({ viewport: { width: 1280, height: 720 } }); //SIZE of the browser window
   pageFixture.page = await pageFixture.context.newPage();
-  await pageFixture.page.goto(url);
-
+  await pageFixture.page.goto(config.url);
 });
 
 Then('I should still be logged in and see the dashboard page with the title {string}', async (string) => {

@@ -4,43 +4,108 @@
     "elements": [
       {
         "description": "",
-        "id": "successful-logim;user-logs-in-as-admin",
+        "id": "login-to-orangehrm;login-with-invalid-credentials-as-admin",
         "keyword": "Scenario",
-        "line": 4,
-        "name": "User logs in as Admin",
+        "line": 8,
+        "name": "Login with invalid credentials as Admin",
         "steps": [
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1401649600
+              "duration": 1449680800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 818566100
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 5,
-            "name": "I navigate to the login page",
+            "line": 9,
+            "name": "I click on the username field",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:14"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:55"
             },
             "result": {
               "status": "passed",
-              "duration": 728901799
+              "duration": 446085499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I type a specific name into the username field \"Admin11\"",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:102"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11153899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "I click on the password field",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:80"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 37378099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "I type a specific password into the password field \"admin123\"",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:107"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8200800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "i click on the login button",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:95"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 41533100
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 6,
-            "name": "the login page should be displayed",
+            "line": 14,
+            "name": "I should see a validation message saying Invalid credentials",
             "match": {
-              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:151"
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:135"
             },
             "result": {
               "status": "passed",
-              "duration": 409776899
+              "duration": 877495199
             }
           },
           {
@@ -48,24 +113,437 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 494628499
+              "duration": 489843800
             }
           }
         ],
         "tags": [
           {
-            "name": "@smoke",
-            "line": 3
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@cucumber_expression",
+            "line": 7
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-to-orangehrm;login-with-valid-credentials-as-admin",
+        "keyword": "Scenario",
+        "line": 17,
+        "name": "Login with valid credentials as Admin",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 772608400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 741373999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 18,
+            "name": "I click on the username field",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:55"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 357914699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "I type \"Admin\" into the username field",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:63"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8756300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "the username field should contain \"Admin\"",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:72"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5005699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "I click on the password field",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:80"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 35511099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "I type \"admin123\" into the password field",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:86"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6570499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "i click on the login button",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:95"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 41759800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 24,
+            "name": "I should be logged in and see the dashboard page with the title Dashboard",
+            "match": {
+              "location": "src\\test\\step-definitions\\AdminPage_steps.ts:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 931002599
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 428860999
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@login",
+            "line": 16
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-to-orangehrm;user-is-declined-to-login-with-no-password-credentials",
+        "keyword": "Scenario",
+        "line": 27,
+        "name": "User is declined to login with no password credentials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 682845499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 728420300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 28,
+            "name": "I click on the username field",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:55"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 892571100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "I type \"Admin\" into the username field",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:63"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7493099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "the username field should contain \"Admin\"",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:72"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7531500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 31,
+            "name": "i click on the login button",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:95"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 32695200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 32,
+            "name": "I should see a Required message for the password field",
+            "match": {
+              "location": "src\\test\\step-definitions\\AdminPage_steps.ts:36"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 13656599
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 373601200
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@validation1",
+            "line": 26
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-to-orangehrm;verify-validation-messages-for-empty-login-fields",
+        "keyword": "Scenario",
+        "line": 35,
+        "name": "Verify validation messages for empty login fields",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 660143100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 698711999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 36,
+            "name": "i click on the login button",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:95"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 356738500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 37,
+            "name": "I should see a validation message saying Required",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:141"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15825600
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 398007099
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@validation2",
+            "line": 34
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-to-orangehrm;password-reset-modal-shows-up-properly",
+        "keyword": "Scenario",
+        "line": 40,
+        "name": "Password reset modal shows up properly",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 667508699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 797108400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 41,
+            "name": "I click the Forget your password? link",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:176"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 480098000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 42,
+            "name": "i should see a modal to reset password",
+            "match": {
+              "location": "src\\test\\step-definitions\\Loginpage_Steps.ts:181"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 395756900
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 382954099
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@password-reset",
+            "line": 39
           }
         ],
         "type": "scenario"
       }
     ],
-    "id": "successful-logim",
-    "line": 1,
+    "id": "login-to-orangehrm",
+    "line": 2,
     "keyword": "Feature",
-    "name": "Successful Logim",
-    "tags": [],
-    "uri": "src\\test\\features\\Login2.feature"
+    "name": "Login to OrangeHRM",
+    "tags": [
+      {
+        "name": "@regression",
+        "line": 1
+      }
+    ],
+    "uri": "src\\test\\features\\Login.feature"
   }
 ]

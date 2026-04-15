@@ -2,7 +2,9 @@ import { After, AfterAll, Before, BeforeAll, Status } from "@cucumber/cucumber";
 import { Browser, chromium } from "@playwright/test";
 import { pageFixture } from "./browserContextFixture";
 
+
 let browser: Browser;
+
 
 //BeforeAll hook: Runs once before all scenarios 
 BeforeAll(async function () {

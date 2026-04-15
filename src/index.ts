@@ -1,3 +1,5 @@
+import { exec } from "child_process";
+
 /// <reference types="node" />
 
 //Define a common command string for running cucumber tests
@@ -33,4 +35,16 @@ const common = `./src/test/features/*.feature \
  let command = `npx cucumber-js ${profiles[profile as 'smoke' | 'regresssion' | 'login' | 'admin' | 'deletion']}`;
 
  //Print the constructed command
- console.log(command);
+// console.log(command);
+
+//Execute the command
+exec(command, { encoding: 'utf-8'}, (error: Error | null, stdout: string)=>{
+    //Log the output of the command
+    console.log(stdout);
+
+    //check if there was an error during execution
+    if(error) {
+      //throw a new error with a simple mssage
+      throw new Error('⚠️ 💥 Some automation test(s) have failed! - Please review. ⚠️ 💥 ')
+    }
+})
