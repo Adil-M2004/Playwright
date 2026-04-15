@@ -11,16 +11,19 @@ Prerequisites -
 
 - Execution Command(CUSTOM SCRIPT): npm run cucumberWithTS
 
-If you want to exectue Only ONE SCENARIO:
-go to "package.json" and add "--tags @name_of_tag" at end of cucumberWithTS value
+**UPDATE: New and more efficient way to execute singular scenarios or Files using TAGS**
+If you want to exectue Only ONE SCENARIO or Only ONE feature file, The Command for that is:
 
-EXAMPLE: "cucumberWithTS": "cucumber-js src/test/features/*.feature --require-module ts-node/register --require src/step-definitions/**/**/*.ts --require src/test/utils/cucumber-timeout.ts --tags @name_of_tag"
+- npm run cucumber <tag_name>
+
+**REPLACE <tag_name> with tag that is included in src/index.ts**
+**NEW TAG MUST BE DECLARED IN INDEX.TS BEFORE USE**
+
 
 _______________________________________________________________
-IMPORTANT NOTICE:
+**IMPORTANT NOTICE**
 Sometimes Test(s) can fail due to:
 - The website (OrangeHRM) changing lanuages (Chinese, german etc....)
-- Not enough records for deletion
 
 REPORTS
 __________________________

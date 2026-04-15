@@ -21,6 +21,7 @@ const common = `./src/test/features/*.feature \
     login: `${common} --tags "@login"`,
     admin: `${common} --tags "@admin"`,
     deletion: `${common} --tags "@deletion"`,
+    exampleTag: `${common} --tags "@example-tag"`,
 
   }
 

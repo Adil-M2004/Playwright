@@ -1,10 +1,10 @@
-@regression
+@regression @login
 Feature: Login to OrangeHRM
 
   Background: Pre-Conditions
     Given I navigate to the login page
 
-  @cucumber_expression
+  #cucumber experession
   Scenario: Login with invalid credentials as Admin
     When I click on the username field
     And I type a specific name into the username field "Admin11"
@@ -13,7 +13,8 @@ Feature: Login to OrangeHRM
     And i click on the login button
     Then I should see a validation message saying Invalid credentials
 
-  @login
+
+  @smoke
   Scenario: Login with valid credentials as Admin
     When I click on the username field
     And I type "Admin" into the username field
@@ -23,7 +24,7 @@ Feature: Login to OrangeHRM
     And i click on the login button
     Then I should be logged in and see the dashboard page with the title Dashboard
 
-  @validation1
+ 
   Scenario: User is declined to login with no password credentials
     When I click on the username field
     And I type "Admin" into the username field
@@ -31,12 +32,12 @@ Feature: Login to OrangeHRM
     And i click on the login button
     Then I should see a Required message for the password field
 
-  @validation2
+  
   Scenario: Verify validation messages for empty login fields
     When i click on the login button
     Then I should see a validation message saying Required
 
-  @password-reset
+ 
   Scenario: Password reset modal shows up properly
     When I click the Forget your password? link
     Then i should see a modal to reset password
