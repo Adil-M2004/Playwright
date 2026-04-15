@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 685705199
+              "duration": 774486800
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 8956121999
+              "duration": 3230369499
             }
           },
           {
@@ -40,7 +40,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2016211299
+              "duration": 1010204600
             }
           },
           {
@@ -49,11 +49,11 @@
             "line": 33,
             "name": "the user clicks Delete Selected button",
             "match": {
-              "location": "src\\test\\step-definitions\\AdminPage_steps.ts:153"
+              "location": "src\\test\\step-definitions\\AdminPage_steps.ts:152"
             },
             "result": {
               "status": "passed",
-              "duration": 84067399
+              "duration": 53272900
             }
           },
           {
@@ -66,7 +66,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 11874100
+              "duration": 10026599
             }
           },
           {
@@ -79,7 +79,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 38534100
+              "duration": 37653200
             }
           },
           {
@@ -87,7 +87,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 543996300
+              "duration": 504937999
             }
           }
         ],

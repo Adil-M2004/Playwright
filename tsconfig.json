@@ -6,8 +6,9 @@
         "types": ["node", "@cucumber/cucumber"], // 👈 Add "node" here
         "esModuleInterop": true,
     },
-    "include": [
-        "src/test/**/*.ts"
+"include": [
+        "src/test/**/*.ts",
+        "src/index.ts"
     ],
     "exclude": [
         "node_modules"

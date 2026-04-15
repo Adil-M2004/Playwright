@@ -113,8 +113,7 @@ Then('the user still sees that record in the Records Found list', async () => {
 
 //BULK DELETION
 When('the user clicks on the checkboxes for the first {int} records under Records Found', async (int) => {
-
-    //await pageFixture.page.pause();
+     //CHECK TO SEE IF ATOLEAST 5 ROWS ARE AVAILABLE
 
     // 1. Locate all data rows
   const rows = pageFixture.page.locator('div.oxd-table-body > div.oxd-table-card');
