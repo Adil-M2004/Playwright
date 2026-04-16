@@ -18,7 +18,11 @@ AfterAll(async function () {
 
 // Before hook: Runs before each scenario
 Before(async function () { 
-   browser = await chromium.launch({ headless: false });
+   // Replace your current launch line with this:
+browser = await chromium.launch({ 
+    headless: false,
+    channel: 'chrome' // This tells Playwright to use the official Google Chrome
+});
    pageFixture.context = await browser.newContext({ viewport: { width: 1280, height: 720 } }); //SIZE of the browser window
    pageFixture.page = await pageFixture.context.newPage();
 })
