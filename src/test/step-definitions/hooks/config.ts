@@ -10,3 +10,5 @@ export const config = {
 export const pass = {
     password: process.env.PASSWORD || "admin123",
 };
+
+

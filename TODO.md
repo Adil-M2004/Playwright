@@ -1,23 +1,12 @@
-# TODO: Fix ts-node smoke tests runner
+# TODO: Fixes to be made
 
 ## Steps to complete:
 
-1. ✅ [DONE] Create this TODO.md to track progress.
+1. Naming Conventions
 
-2. ✅ [DONE] Update src/index.ts:
-   - Import child_process.execSync.
-   - Fix typo 'regresssion' → 'regression'.
-   - Validate profile argument.
-   - Replace console.log(command) with execSync(command, { stdio: 'inherit' }).
+2. POM Imporveent, step_definitions should only contain mathods and should be simple
 
-3. ✅ [DONE] Update package.json:
-   - Add npm scripts: \"smoke\": \"npx ts-node src/index.ts smoke\", similarly for regression, login, admin, deletion.
-   - Adjust cucumberWithTS to point to smoke.
+3. JIRA and frameworks Gherkin test cases should match
 
-4. ✅ [DONE] Test setup complete.
+4. More Specific/Better assertions that checkl for text IN ELEMENT rather than just the element itself
 
-To verify:
-- Run `npm run precucumber && npm run smoke`
-- Now `npx ts-node src/index.ts smoke` or `npm run smoke` will execute cucumber smoke tests (no more just printing).
-
-Task complete.

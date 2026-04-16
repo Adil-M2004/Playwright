@@ -42,4 +42,3 @@ After(async function ({pickle, result}) {
     await browser.close();
 })
 
-
