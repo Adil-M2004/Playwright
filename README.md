@@ -2,6 +2,8 @@ PLAYWIGHT-CUCUMBER PROJECT BY ADIL MANZOOR - DOCUMENTATION
 _______________________________________________________________
 # About Project
 This playwright project included Gherkin Test cases which tests a web application called ORANGE HRM.
+
+**Nameing Convantion** - camelCase
 _________________________________________________________________
 Prerequisites - 
 

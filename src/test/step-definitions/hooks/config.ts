@@ -6,6 +6,10 @@ dotenv.config();
 export const config = {
     url: process.env.URL || 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
     username: "Admin",
+    invalidUsername: "Admin12",
+    nonExistentUserName: "fakeUser",
+    nonExistentPassword: "fakePass",
+    weakPassword: "password123",
 };
 
 //PASSWORDS MUST BE KEPT IN .env file for security

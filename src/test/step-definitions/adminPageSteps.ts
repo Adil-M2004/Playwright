@@ -26,8 +26,6 @@ Then('I should be logged in and see the dashboard page with the title Dashboard'
 
 
 Then('I click the Admin button on the sidebar', async () => {
-    // await pageFixture.page.click('a:has-text("Admin")');
-    // const adminHeader = pageFixture.page.locator("//h6[contains(@class, 'oxd-topbar-header-breadcrumb-module') and text()='Admin']");
     const nav = new NavigationPage(pageFixture.page);
     await nav.goToAdmin();
 });
@@ -66,10 +64,9 @@ Then('the user sees a confirmation modal with the message Are you Sure?', async 
     await expect(confirmationMessage).toBeVisible();
 });
 
-When('the user clicks the Yes, Delete red button', async () => {
+Then('the user clicks the Yes, Delete red button', async () => {
     await pageFixture.page.getByRole('button', { name: 'Yes, Delete' }).click();
 });
-
 
 Then('the user no longer sees that record in the Records Found list', async () => {
    
@@ -99,7 +96,6 @@ Then('the page should not display the confirmation modal with the message Are yo
 
 When('the user clicks the No, Cancel green button', async () => {
     await pageFixture.page.getByRole('button', { name: 'No, Cancel' }).click();
-
 });
 
 
@@ -108,12 +104,11 @@ Then('the user still sees that record in the Records Found list', async () => {
     const deletedUserElement = pageFixture.page.getByText(deletedUsername, { exact: true });
   
   await expect(deletedUserElement).toBeVisible();
-
 });
 
 //BULK DELETION
 When('the user clicks on the checkboxes for the first {int} records under Records Found', async (int) => {
-     //CHECK TO SEE IF ATOLEAST 4 ROWS ARE AVAILABLE
+     //CHECK TO SEE IF ATLEAST 4 ROWS ARE AVAILABLE
 
     // 1. Locate all data rows
   const rows = pageFixture.page.locator('div.oxd-table-body > div.oxd-table-card');
@@ -127,10 +122,10 @@ When('the user clicks on the checkboxes for the first {int} records under Record
 
   console.log(`Quantity of records found: ${rowCount}`);
 
-  if(rowCount >= 5) {
+  if(rowCount >= 4) {
      //uses LOOP TO CHECK BOXES 2ND TO FIFTH (since 1st row is usually ADMIN)
     const rowStart = 1; // 2nd row
-    const rowEnd = 4;   // 5th row
+    const rowEnd = 3;   // 4th row
 
     for (let i = rowStart; i <= rowEnd; i++) {
         await pageFixture.page
@@ -146,7 +141,6 @@ When('the user clicks on the checkboxes for the first {int} records under Record
 
   });
  
-
 
 When('the user clicks Delete Selected button', async () => {
    await pageFixture.page.getByRole('button', { name: ' Delete Selected' }).click();

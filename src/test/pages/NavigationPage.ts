@@ -18,15 +18,17 @@ export class NavigationPage {
         this.addUser = page.getByRole('button', { name: 'Add' });
     }
 
+    //GO TO ADMIN PAGE
     async goToAdmin() {
         await this.adminMenuItem.click();
     }
 
+    //CLICK ADD USER
     async goToAddUser() {
         await this.addUser.click();
     }
 
-   //NAVIAGTE TO URL
+   //NAVIAGTE TO URL of WEBSITE
     async goto() {
         await this.page.goto(configTest.url);
   }

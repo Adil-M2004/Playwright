@@ -15,13 +15,31 @@ const common = `./src/test/features/*.feature \
   }
 
   // Define command strings for different test profiles
-  const profiles: ProfileCommands = {
+    const profiles: ProfileCommands = {
     smoke: `${common} --tags "@smoke"`,
     regression: `${common} --tags "@regression"`,
     login: `${common} --tags "@login"`,
+    loginPage: `${common} --tags "@loginPage"`,
     admin: `${common} --tags "@admin"`,
     deletion: `${common} --tags "@deletion"`,
     exampleTag: `${common} --tags "@example-tag"`,
+    deletionConfirmation: `${common} --tags "@deletionConfirmation"`,
+    selfDeletion: `${common} --tags "@selfDeletion"`,
+    cancelDeletion: `${common} --tags "@CancelDeletion"`,
+    bulkDeletion: `${common} --tags "@bulkDeletion"`,
+    maxLength: `${common} --tags "@maxLength"`,
+    securityStrength: `${common} --tags "@securityStrength"`,
+    statusField: `${common} --tags "@statusField"`,
+    fieldElements: `${common} --tags "@fieldElements"`,
+    validLogin: `${common} --tags "@validLogin"`,
+    nonExistentUser: `${common} --tags "@NonExistentUser"`,
+    invalidLogin: `${common} --tags "@invalidLogin"`,
+    emptyPassword: `${common} --tags "@emptyPassword"`,
+    emptyUsername: `${common} --tags "@emptyUsername"`,
+    emptyFields: `${common} --tags "@emptyFields"`,
+    passwordReset: `${common} --tags "@passwordReset"`,
+    session: `${common} --tags "@session"`,
+    loginAssertion: `${common} --tags "@loginAssertion"`,
 
   }
 
@@ -33,7 +51,7 @@ const common = `./src/test/features/*.feature \
  //Construct the command string based on the selected profile
  //command is the full command to run the tests for the selected profile
 
- let command = `npx cucumber-js ${profiles[profile as 'smoke' | 'regresssion' | 'login' | 'admin' | 'deletion']}`;
+ let command = `npx cucumber-js ${profiles[profile as keyof ProfileCommands] || profiles[profile as 'smoke' | 'regression' | 'login' | 'admin' | 'deletion']}`;
 
  //Print the constructed command
 // console.log(command);

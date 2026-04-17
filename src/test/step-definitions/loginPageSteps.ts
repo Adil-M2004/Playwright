@@ -12,7 +12,6 @@ let browser: Browser;
 
 
 Given('I navigate to the login page', async () => {
-  //await pageFixture.page.goto(url);
   await pageFixture.page.goto(config.url);
 });
 
@@ -66,11 +65,11 @@ When('I type {string} into the username field', async (string) => {
   await loginPage.usernameInput.fill(string);       // 3. Use locator from POM
 });
 
-Then('the username field should contain {string}', async (string) => {
+Then('the username field should contain the username', async () => {
   const username_box = pageFixture.page.getByRole('textbox', { name: 'Username' })
   const value = await username_box.inputValue();
-  if (value !== string) {
-    throw new Error(`Expected username field to contain "${string}", but got "${value}"`);
+  if (value !== config.username) {
+    throw new Error(`Expected username field to contain "${config.username}", but got "${value}"`);
   }
 });
 
@@ -80,7 +79,7 @@ When('I click on the password field', async () => {
 
 });
 
-When('I type {string} into the password field', async (string) => {
+When('I type into the password field', async (string) => {
   // const password_box = pageFixture.page.getByRole('textbox', { name: 'Password' })
   // await password_box.fill(string);
 
@@ -96,7 +95,7 @@ When('i click on the login button', async () => {
 });
 
 //Cucumber Expressions - DYNAMIC USERNAME AND PASSWORD
-When('I type a specific name into the username field {string}', async (username: string) => {
+When('I type a specific name into the username field', async (username: string) => {
   const loginPage = new LoginPage(pageFixture.page); // 2. Create instance
   await loginPage.usernameInput.fill(username);       // 3. Use locator from POM
 });
@@ -105,24 +104,6 @@ When('I type a specific password into the password field {string}', async (passw
   const loginPage = new LoginPage(pageFixture.page); // 2. Create instance
   await loginPage.passwordInput.fill(password);       // 3. Use locator from POM
   // await pageFixture.page.pause();
-});
-
-
-
-//Random Data - Faker
-When('I type a random username into the username field', async () => {
-  //Faker code here
-  const randomUsername = faker.internet.username(); //CREATE A RANDOM USERNAME
-  const username_box = await pageFixture.page.getByRole('textbox', { name: 'Username' }) //LOCATE THE USERNAME FIELD
-  await username_box.fill(randomUsername);
-});
-
-
-When('I type a random password into the password field', async () => {
-  //Faker code here
-  const randomPassword = faker.internet.password();
-  const password_box = await pageFixture.page.getByRole('textbox', { name: 'Password' }) //LOCATE THE USERNAME FIELD
-  await password_box.fill(randomPassword);
 });
 
 
@@ -153,11 +134,10 @@ Then('the login page should be displayed', async () => {
 
 When('I close the browser tab', async () => {
   await pageFixture.page.close();
-
 });
 
 
-When('I reopen the application URL {string}', async (string) => {
+When('I reopen the application', async () => {
   browser = await chromium.launch({ headless: false });
   pageFixture.context = await browser.newContext({ viewport: { width: 1280, height: 720 } }); //SIZE of the browser window
   pageFixture.page = await pageFixture.context.newPage();
