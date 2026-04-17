@@ -8,5 +8,5 @@
 
 3. JIRA and frameworks Gherkin test cases should match
 
-4. More Specific/Better assertions that checkl for text IN ELEMENT rather than just the element itself
+4. More Specific/Better assertions that check for text IN ELEMENT rather than just the element itself
 

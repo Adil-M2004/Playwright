@@ -5,10 +5,15 @@ dotenv.config();
 
 export const config = {
     url: process.env.URL || 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
+    username: "Admin",
 };
 
+//PASSWORDS MUST BE KEPT IN .env file for security
 export const pass = {
     password: process.env.PASSWORD || "admin123",
 };
 
-
+//URL Stored ONLY IN CONFIG FILE/ NOT IN .env
+export const configTest = {
+    url: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
+}

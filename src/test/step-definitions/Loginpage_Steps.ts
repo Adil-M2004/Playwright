@@ -16,7 +16,7 @@ Given('I navigate to the login page', async () => {
   await pageFixture.page.goto(config.url);
 });
 
-//PRE-CONDITION
+// PRE-CONDITION
 Given('I login as an admin', async () => {
   //LOG-IN AS ADMIN
 
@@ -29,7 +29,7 @@ Given('I login as an admin', async () => {
 
   //Insert username "Admin"
   const loginPage = new LoginPage(pageFixture.page); // 2. Create instance
-  await loginPage.usernameInput.fill("Admin");       // 3. Use locator from POM
+  await loginPage.usernameInput.fill(config.username);       // 3. Use locator from POM
 
   //Click password field
   const password_box = pageFixture.page.getByRole('textbox', { name: 'Password' })
@@ -60,8 +60,6 @@ When('I click on the username field', async () => {
 
 
 When('I type {string} into the username field', async (string) => {
-  // const username_box = await pageFixture.page.getByRole('textbox', { name: 'Username' })
-  // await username_box.fill(string);
 
   //Using the LoginPage POM class to access the username field
   const loginPage = new LoginPage(pageFixture.page); // 2. Create instance
