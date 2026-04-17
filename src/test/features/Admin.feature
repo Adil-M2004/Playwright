@@ -7,9 +7,8 @@ Feature: Admin Functionality
   @deletion
   Scenario: Admin selects the delete button for deletion
     When the user clicks the Trash Can delete icon on the third record in the Records Found list
-    And the user sees a confirmation modal with the message Are you Sure?
-    Then the user clicks the Yes, Delete red button
-    And the user no longer sees that record in the Records Found list
+    And the user confirms the deletion in the Are you Sure? modal
+    Then the user no longer sees that record in the Records Found list
 
   @selfDeletion
   Scenario: Impossible for Admin to Self-Delete their account
@@ -18,7 +17,8 @@ Feature: Admin Functionality
 
   @CancelDeletion
   Scenario: The user successfully cancels user deletion
-    When the user clicks the No, Cancel green button
+    When the user clicks the Trash Can delete icon on the third record in the Records Found list
+    And the user cancels the delection in the Are you Sure? modal
     Then the user still sees that record in the Records Found list
 
 # TEST INCLUDEs with CHECK FOR AMOUNT OF RECORDS FROM EXECUTION  (TEST MAY FAIL) 
@@ -26,9 +26,8 @@ Feature: Admin Functionality
   Scenario: Bulk deletion of 3 users
     When the user clicks on the checkboxes for the first 3 records under Records Found
     And the user clicks Delete Selected button
-    And the user sees a confirmation modal with the message Are you Sure?
-    Then the user clicks the Yes, Delete red button
-    And the user no longer sees those records   //IMPLEMENT!!!
+    And the user confirms the deletion in the Are you Sure? modal
+    Then the user no longer sees those records   
 
   @maxLength
   Scenario: User is informed about the maximum username length
@@ -45,4 +44,10 @@ Feature: Admin Functionality
   @statusField
   Scenario: Status field(Active/Inactive) is NOT selected by default
     When the user clicks on the ADD button to add a new user
-    Then the Status field should be set to "-- Select --" by default
+    Then the Status field should be set to select by default
+  
+  @session
+  Scenario: User DOES NOT stay logged-in after Loggingin & closing tab & reopening the application
+    When I close the browser tab
+    And I reopen the application
+    Then the login page should be displayed

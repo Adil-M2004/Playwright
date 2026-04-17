@@ -1,23 +1,22 @@
 import { Given, When, Then } from '@cucumber/cucumber';
 import { pageFixture } from './hooks/browserContextFixture';
-import { config, pass } from './hooks/config'; // Import the config 
-import { faker } from '@faker-js/faker';
+import { config } from './hooks/config'; // Import the config 
 import { expect } from 'playwright/test';
 import { Browser, chromium } from "@playwright/test";
 import { LoginPage } from "../pages/LoginPage"; // 1. Import it
 
 
 let browser: Browser;
-//const url = 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'; //URL for login page(OrangeHRM demo site)
 
 
 Given('I navigate to the login page', async () => {
   await pageFixture.page.goto(config.url);
+  //ASSERTION TO CHECK LOGIN PAGE via header
+  await expect(pageFixture.page.getByRole('heading', { name: 'Login' })).toBeVisible();
 });
 
 // PRE-CONDITION
 Given('I login as an admin', async () => {
-  //LOG-IN AS ADMIN
 
   //naviagte to URL
   await pageFixture.page.goto(config.url);
@@ -26,7 +25,7 @@ Given('I login as an admin', async () => {
   const username_box = pageFixture.page.getByRole('textbox', { name: 'Username' })
   await username_box.click();
 
-  //Insert username "Admin"
+  //Insert username 
   const loginPage = new LoginPage(pageFixture.page); // 2. Create instance
   await loginPage.usernameInput.fill(config.username);       // 3. Use locator from POM
 
@@ -34,9 +33,9 @@ Given('I login as an admin', async () => {
   const password_box = pageFixture.page.getByRole('textbox', { name: 'Password' })
   await password_box.click();
 
-  //Insert password "admin123"
+  //Insert password 
   const loginPage2 = new LoginPage(pageFixture.page); // 2. Create instance
-  await loginPage2.passwordInput.fill(pass.password);       // 3. Use locator from POM
+  await loginPage2.passwordInput.fill(config.password);       // 3. Use locator from POM
 
   //Click Login Button
   const login_button = pageFixture.page.getByRole('button', { name: 'Login' });
@@ -44,25 +43,18 @@ Given('I login as an admin', async () => {
 
   //Click the Admin Button
   await pageFixture.page.click('a:has-text("Admin")');
-  //  const adminHeader = pageFixture.page.locator("//h6[contains(@class, 'oxd-topbar-header-breadcrumb-module') and text()='Admin']");
-  //  await adminHeader.click();
 
-
-});//END OF GIVEN
+});//END OF PRE CONDTION
 
 When('I click on the username field', async () => {
-  //await page.pause();
   const username_box = await pageFixture.page.getByRole('textbox', { name: 'Username' })
   await username_box.click();
 
 });
 
-
-When('I type {string} into the username field', async (string) => {
-
-  //Using the LoginPage POM class to access the username field
+When('I type into the username field', async () => {
   const loginPage = new LoginPage(pageFixture.page); // 2. Create instance
-  await loginPage.usernameInput.fill(string);       // 3. Use locator from POM
+  await loginPage.usernameInput.fill(config.username);       // 3. Use locator from POM
 });
 
 Then('the username field should contain the username', async () => {
@@ -79,13 +71,9 @@ When('I click on the password field', async () => {
 
 });
 
-When('I type into the password field', async (string) => {
-  // const password_box = pageFixture.page.getByRole('textbox', { name: 'Password' })
-  // await password_box.fill(string);
-
-  //Using the LoginPage POM class to access the password field
+When('I type into the password field', async () => {
   const loginPage = new LoginPage(pageFixture.page); // 2. Create instance
-  await loginPage.passwordInput.fill(string);       // 3. Use locator from POM
+  await loginPage.passwordInput.fill(config.password);       // 3. Use locator from POM
 });
 
 When('i click on the login button', async () => {
@@ -95,7 +83,7 @@ When('i click on the login button', async () => {
 });
 
 //Cucumber Expressions - DYNAMIC USERNAME AND PASSWORD
-When('I type a specific name into the username field', async (username: string) => {
+When('I type a specific name into the username field {string}', async (username: string) => {
   const loginPage = new LoginPage(pageFixture.page); // 2. Create instance
   await loginPage.usernameInput.fill(username);       // 3. Use locator from POM
 });
@@ -107,8 +95,6 @@ When('I type a specific password into the password field {string}', async (passw
 });
 
 
-//Scenario Outlines:///////////////////////////////////////////
-
 //Invalid credentials validation
 Then('I should see a validation message saying Invalid credentials', async () => {
   //FILL CODE HERE
@@ -118,11 +104,6 @@ Then('I should see a validation message saying Invalid credentials', async () =>
 //Required field validation message
 Then('I should see a validation message saying Required', async () => {
   await pageFixture.page.waitForSelector('span:has-text("Required")'); // Wait for the "Required" message to be visible
-});
-
-//Dashboard validation message
-Then('I should see a validation message saying Dashboard', async () => {
-  await pageFixture.page.waitForSelector('h6:has-text("Dashboard")'); // Wait for the "Dashboard" message to be visible
 });
 
 
@@ -144,10 +125,6 @@ When('I reopen the application', async () => {
   await pageFixture.page.goto(config.url);
 });
 
-Then('I should still be logged in and see the dashboard page with the title {string}', async (string) => {
-  await pageFixture.page.waitForSelector('h6:has-text("Dashboard")'); // Wait for the dashboard title to be visible
-
-});
 
 //PASSWORD RESET MODAL
 When('I click the Forget your password? link', async () => {
@@ -156,9 +133,33 @@ When('I click the Forget your password? link', async () => {
 });
 
 Then('i should see a modal to reset password', async () => {
- // await pageFixture.page.pause();
+  // await pageFixture.page.pause();
   const resetPassword_title = pageFixture.page.getByRole('heading', { name: 'Reset Password' });
   await expect(resetPassword_title).toBeVisible();
+});
+
+//Non-existent User
+When('the user types non-existent username into the usernanme field', async () => {
+  //Click Username field
+  const username_box = pageFixture.page.getByRole('textbox', { name: 'Username' })
+  await username_box.click();
+
+  //INSERT NON-EXISTENT USERNAME
+  const loginPage = new LoginPage(pageFixture.page); // 2. Create instance
+  await loginPage.usernameInput.fill(config.nonExistentUserName);       // 3. Use locator from POM
+
+
+});
+
+When('the user types non-existent password into the password field', async () => {
+  //Click password field
+  const password_box = pageFixture.page.getByRole('textbox', { name: 'Password' })
+  await password_box.click();
+
+  //INSERT NON-EXISTENT PASSWORD
+  const loginPage2 = new LoginPage(pageFixture.page); // 2. Create instance
+  await loginPage2.passwordInput.fill(config.nonExistentPassword);       // 3. Use locator from POM
+
 });
 
 

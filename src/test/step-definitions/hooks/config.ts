@@ -10,12 +10,11 @@ export const config = {
     nonExistentUserName: "fakeUser",
     nonExistentPassword: "fakePass",
     weakPassword: "password123",
+    password: process.env.PASSWORD || "admin123",
+    selectField: "-- Select --",
+    FortyPlusString: "ThisIsAVeryLongUsernameExceedingTheLimittttt",
 };
 
-//PASSWORDS MUST BE KEPT IN .env file for security
-export const pass = {
-    password: process.env.PASSWORD || "admin123",
-};
 
 //URL Stored ONLY IN CONFIG FILE/ NOT IN .env
 export const configTest = {

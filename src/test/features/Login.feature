@@ -1,7 +1,7 @@
 @regression @login
 Feature: Login to OrangeHRM
-  # Pre-Condition
 
+  # Pre-Condition
   Background: Pre-Conditions
     Given I navigate to the login page
 
@@ -9,14 +9,15 @@ Feature: Login to OrangeHRM
   Scenario: Username is seen in field after input
     When I click on the username field
     And I type into the username field
+    Then the username field should contain the username
   #Positive Path
 
   @validLogin
   Scenario: Login with valid credentials as Admin
     When I click on the username field
     And I type into the username field
-    When I click on the password field
-    And I type "admin123" into the password field
+    And I click on the password field
+    And I type into the password field
     And i click on the login button
     Then I should be logged in and see the dashboard page with the title Dashboard
 
@@ -26,13 +27,13 @@ Feature: Login to OrangeHRM
     And the user types non-existent password into the password field
     And i click on the login button
     Then I should see a validation message saying Invalid credentials
+    
   #Negetive Path - cucumber experession
-
   @invalidLogin
   Scenario: Login with invalid credentials as Admin
     When I click on the username field
     And I type a specific name into the username field "Admin11"
-    When I click on the password field
+    And I click on the password field
     And I type a specific password into the password field "admin123"
     And i click on the login button
     Then I should see a validation message saying Invalid credentials
@@ -65,18 +66,4 @@ Feature: Login to OrangeHRM
     When I click the Forget your password? link
     Then i should see a modal to reset password
 
-  @session
-  Scenario: Login with valid credentials as Admin
-    When I click on the username field
-    And I type into the username field
-    When I click on the password field
-    And I type "admin123" into the password field
-    And i click on the login button
-    Then I should be logged in and see the dashboard page with the title Dashboard
-
-  @session
-  Scenario: User DOES NOT stay logged-in after closing tab and reopening the application
-    #When I close the browser tab
-    And I reopen the application
-    Then the login page should be displayed
-  #Then I should still be logged in and see the dashboard page with the title Dashboard
+ 

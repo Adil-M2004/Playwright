@@ -39,7 +39,7 @@ const common = `./src/test/features/*.feature \
     emptyFields: `${common} --tags "@emptyFields"`,
     passwordReset: `${common} --tags "@passwordReset"`,
     session: `${common} --tags "@session"`,
-    loginAssertion: `${common} --tags "@loginAssertion"`,
+    loginPageAssertion: `${common} --tags "@loginPageAssertion"`,
 
   }
 

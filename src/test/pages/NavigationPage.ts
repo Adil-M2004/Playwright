@@ -1,5 +1,5 @@
 import { Page, Locator } from "@playwright/test";
-import { config, pass, configTest } from '../step-definitions/hooks/config'; // Import the config 
+import { config, configTest } from '../step-definitions/hooks/config'; // Import the config 
 //import { url } from "node:inspector";
 
 

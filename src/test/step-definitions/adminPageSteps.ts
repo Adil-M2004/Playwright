@@ -4,6 +4,7 @@ import { expect } from 'playwright/test';
 import { NavigationPage } from "../pages/NavigationPage";
 
 let deletedUsername: string;
+let deletedUsernames: string[] = [];
 
 
 
@@ -36,12 +37,16 @@ Then('I should see a Required message for the password field', async () => {
     await expect(passwordRequired).toBeVisible();
 });
 
+Then('I should see a Required message for the username field', async () => {
+    const passwordRequired = pageFixture.page.locator('span:has-text("Required")'); // Wait for the "Required" message to be visible
+    await expect(passwordRequired).toBeVisible();
+});
+
 //XPATH Locator
 Then('I should see the Admin page with the title Admin', async () => {
     const adminHeader = pageFixture.page.locator("//h6[contains(@class, 'oxd-topbar-header-breadcrumb-module') and text()='Admin']");
     await expect(adminHeader).toBeVisible();
 });
-
 
 //Scenario: Delete Record from Admin Page
 When('the user clicks the Trash Can delete icon on the third record in the Records Found list', async () => {
@@ -59,23 +64,28 @@ When('the user clicks the Trash Can delete icon on the third record in the Recor
 
 });
 
-Then('the user sees a confirmation modal with the message Are you Sure?', async () => {
+When('the user confirms the deletion in the Are you Sure? modal', async () => {
     const confirmationMessage = pageFixture.page.locator('p:has-text("Are you sure?")'); // Wait for the confirmation message to be visible
     await expect(confirmationMessage).toBeVisible();
-});
 
-Then('the user clicks the Yes, Delete red button', async () => {
+    //Confirms DELETION
     await pageFixture.page.getByRole('button', { name: 'Yes, Delete' }).click();
 });
 
+When('the user cancels the delection in the Are you Sure? modal', async () => {
+    const confirmationMessage = pageFixture.page.locator('p:has-text("Are you sure?")'); // Wait for the confirmation message to be visible
+    await expect(confirmationMessage).toBeVisible();
+
+    //Cancels DELETION
+    await pageFixture.page.getByRole('button', { name: 'No, Cancel' }).click();
+});
+
+
 Then('the user no longer sees that record in the Records Found list', async () => {
-   
   const deletedUserElement = pageFixture.page.getByText(deletedUsername, { exact: true });
-  
   await expect(deletedUserElement).toBeHidden();
 
 });
-
 
 //Admin conneot self-deletion scenario
 When('the user clicks the Trash Can delete icon of username Admin', async () => {
@@ -87,16 +97,11 @@ When('the user clicks the Trash Can delete icon of username Admin', async () => 
         .click();
 });
 
-
 Then('the page should not display the confirmation modal with the message Are you Sure?', async () => {
     const confirmationMessage = pageFixture.page.locator('p:has-text("Are you sure?")'); // Check for the presence of the confirmation message
     await expect(confirmationMessage).toBeHidden();// Should NOT be visible since the user is trying to delete their own account
 });
 
-
-When('the user clicks the No, Cancel green button', async () => {
-    await pageFixture.page.getByRole('button', { name: 'No, Cancel' }).click();
-});
 
 
 
@@ -107,40 +112,51 @@ Then('the user still sees that record in the Records Found list', async () => {
 });
 
 //BULK DELETION
-When('the user clicks on the checkboxes for the first {int} records under Records Found', async (int) => {
-     //CHECK TO SEE IF ATLEAST 4 ROWS ARE AVAILABLE
+When('the user clicks on the checkboxes for the first {int} records under Records Found', async (count) => {
+    const rows = pageFixture.page.locator('div.oxd-table-body > div.oxd-table-card');
+    await pageFixture.page.locator('.oxd-table-body').waitFor({ state: 'visible' });
 
-    // 1. Locate all data rows
-  const rows = pageFixture.page.locator('div.oxd-table-body > div.oxd-table-card');
+    const rowCount = await rows.count();
+    console.log(`Quantity of records found: ${rowCount}`);
 
-  // 2. CRITICAL: Wait for at least the first row to be attached to the DOM
-  // If the list might be empty, wait for the table container instead
-  await pageFixture.page.locator('.oxd-table-body').waitFor({ state: 'visible' });
+    // We reset the array for every new test run
+    
+    if (rowCount >= 4) {
+        const rowStart = 1; // 2nd row (index 1)
+        const rowEnd = 3;   // 4th row (index 3)
 
-  // 2. Get the count
-  const rowCount = await rows.count();
+        for (let i = rowStart; i <= rowEnd; i++) {
+            const currentRow = rows.nth(i);
+            
+            // 1. CAPTURE the username before clicking
+            // Adjust the selector '.oxd-table-cell' to the specific column index for Username
+            const username = await currentRow.locator('.oxd-table-cell').nth(1).innerText(); 
+            deletedUsernames.push(username.trim());
 
-  console.log(`Quantity of records found: ${rowCount}`);
-
-  if(rowCount >= 4) {
-     //uses LOOP TO CHECK BOXES 2ND TO FIFTH (since 1st row is usually ADMIN)
-    const rowStart = 1; // 2nd row
-    const rowEnd = 3;   // 4th row
-
-    for (let i = rowStart; i <= rowEnd; i++) {
-        await pageFixture.page
-            .locator('.oxd-table-card')
-            .nth(i)
-            .locator('.oxd-checkbox-input')
-            .click();
-    } 
+            // 2. CLICK the checkbox
+            await currentRow.locator('.oxd-checkbox-input').click();
+        }
+        console.log(`Captured for deletion: ${deletedUsernames.join(", ")}`);
 
     } else {
-        throw new Error("CRITICAL FAILURE: Not ENOUGH records found. Cannot proceed with deletion.");
+        throw new Error("CRITICAL FAILURE: Not ENOUGH records found.");
     }
+});
 
-  });
- 
+//ASSERTION FOR BULK DELETION
+Then('the user no longer sees those records', async () => {
+    for (const username of deletedUsernames) {
+        // We use a locator that looks for the text specifically
+        const isVisible = await pageFixture.page
+            .locator('.oxd-table-card', { hasText: username })
+            .isVisible();
+            
+        if (isVisible) {
+            throw new Error(`Assertion Failed: User ${username} is still visible after bulk deletion!`);
+        }
+    }
+    console.log("Bulk deletion verified successfully.");
+});
 
 When('the user clicks Delete Selected button', async () => {
    await pageFixture.page.getByRole('button', { name: ' Delete Selected' }).click();

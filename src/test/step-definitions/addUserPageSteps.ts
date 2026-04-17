@@ -2,17 +2,21 @@ import { Given, When, Then } from '@cucumber/cucumber';
 import { pageFixture } from './hooks/browserContextFixture';
 import { expect } from 'playwright/test';
 import { NavigationPage } from '../pages/NavigationPage';
-import { config, pass, configTest } from '../step-definitions/hooks/config';
+import { config } from '../step-definitions/hooks/config';
 
 
 When('the user clicks on the ADD button to add a new user', async () => {
     const nav = new NavigationPage(pageFixture.page);
     await nav.addUser.click();
+
+    //ASSERTION TO CONFRIM USER HAS LANDED ON ADD USER PAGE
+    const addUser = pageFixture.page.getByRole('heading', { name: 'Add User' });
+    await expect(addUser).toBeVisible();
 });
 
 When('the user enters more than {int} characters into the username field', async (int) => {
     // 40 Characters string being used to exceed the limit
-    await pageFixture.page.getByRole('textbox').nth(2).fill('ThisIsAVeryLongUsernameExceedingTheLimittttt');
+    await pageFixture.page.getByRole('textbox').nth(2).fill(config.FortyPlusString);
 
 });
 
@@ -28,15 +32,15 @@ When('the user enters weak password into password field', async () => {
 });
 
 //ASSERTION TO CHECK IF THE 'WEAK' PASSWORD MESSAGE IS VISIBLE 
-Then('a message is appears stating weak', async () => {
+Then('a message appears stating weak', async () => {
     const weakMessage = pageFixture.page.getByText('Weak'); // Wait for the "Weak" message to be visible
     await expect(weakMessage).toBeVisible();
 });
 
 //ASSERTION TO CHECK IF STATUS FIELD IS DEFAULTED TO "-- Select --"
-Then('the Status field should be set to {string} by default', async (string) => {
+Then('the Status field should be set to select by default', async () => {
     const statusField = pageFixture.page.locator('.oxd-select-text').first();
-    await expect(statusField).toHaveText(string);
+    await expect(statusField).toHaveText(config.selectField);
 });
 
 //ADD USER - INCOMPLETE
