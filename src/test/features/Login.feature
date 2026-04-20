@@ -21,9 +21,9 @@ Feature: Login to OrangeHRM
     And i click on the login button
     Then I should be logged in and see the dashboard page with the title Dashboard
 
-  @NonExistentUser
-  Scenario: User attempts to login with Invalid Crednetials
-    When the user types non-existent username into the usernanme field
+  @nonExistentUser
+  Scenario: User attempts to login with Invalid Credentials
+    When the user types non-existent username into the username field
     And the user types non-existent password into the password field
     And i click on the login button
     Then I should see a validation message saying Invalid credentials
@@ -44,7 +44,7 @@ Feature: Login to OrangeHRM
     When I click on the username field
     And I type into the username field
     And i click on the login button
-    Then I should see a Required message for the password field
+    Then I should see a validation message saying Required
 #Negetive Path
 
   @emptyUsername
@@ -52,7 +52,7 @@ Feature: Login to OrangeHRM
     When I click on the password field
     And I type into the password field
     And i click on the login button
-    Then I should see a Required message for the username field
+    Then I should see a validation message saying Required
 #Negetive Path
 
   @emptyFields

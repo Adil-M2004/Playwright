@@ -4,31 +4,6 @@ Feature: Admin Functionality
   Background: Pre-Conditions
     Given I login as an admin
 
-  @deletion
-  Scenario: Admin selects the delete button for deletion
-    When the user clicks the Trash Can delete icon on the third record in the Records Found list
-    And the user confirms the deletion in the Are you Sure? modal
-    Then the user no longer sees that record in the Records Found list
-
-  @selfDeletion
-  Scenario: Impossible for Admin to Self-Delete their account
-    When the user clicks the Trash Can delete icon of username Admin
-    Then the page should not display the confirmation modal with the message Are you Sure?
-
-  @CancelDeletion
-  Scenario: The user successfully cancels user deletion
-    When the user clicks the Trash Can delete icon on the third record in the Records Found list
-    And the user cancels the delection in the Are you Sure? modal
-    Then the user still sees that record in the Records Found list
-
-# TEST INCLUDEs with CHECK FOR AMOUNT OF RECORDS FROM EXECUTION  (TEST MAY FAIL) 
-  @bulkDeletion
-  Scenario: Bulk deletion of 3 users
-    When the user clicks on the checkboxes for the first 3 records under Records Found
-    And the user clicks Delete Selected button
-    And the user confirms the deletion in the Are you Sure? modal
-    Then the user no longer sees those records   
-
   @maxLength
   Scenario: User is informed about the maximum username length
     When the user clicks on the ADD button to add a new user
@@ -46,8 +21,32 @@ Feature: Admin Functionality
     When the user clicks on the ADD button to add a new user
     Then the Status field should be set to select by default
   
+  @deletion
+  Scenario: Admin Deletes a user successfully
+    When the user clicks the Trash Can delete icon on the third record in the Records Found list
+    And the user confirms the deletion in the Are you Sure? modal
+    Then the user no longer sees that record in the Records Found list
+
+  @selfDeletion
+  Scenario: Impossible for Admin to Self-Delete their account
+    When the user clicks the Trash Can delete icon of username Admin
+    Then the page should not display the confirmation modal with the message Are you Sure?
+
+  @cancelDeletion
+  Scenario: The user successfully cancels user deletion
+    When the user clicks the Trash Can delete icon on the third record in the Records Found list
+    And the user cancels the delection in the Are you Sure? modal
+    Then the user still sees that record in the Records Found list
+
+  @bulkDeletion
+  Scenario: Bulk deletion of 3 users
+    When the user clicks on the checkboxes for the first 3 records under Records Found
+    And the user clicks Delete Selected button
+    And the user confirms the deletion in the Are you Sure? modal
+    Then the user no longer sees those records   
+
   @session
-  Scenario: User DOES NOT stay logged-in after Loggingin & closing tab & reopening the application
+  Scenario: User stays logged-in after Logging-in & closing tab & reopening the application
     When I close the browser tab
     And I reopen the application
-    Then the login page should be displayed
+    Then I should be logged in and see the dashboard page with the title Dashboard

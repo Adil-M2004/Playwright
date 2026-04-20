@@ -12,7 +12,7 @@ export const config = {
     weakPassword: "password123",
     password: process.env.PASSWORD || "admin123",
     selectField: "-- Select --",
-    FortyPlusString: "ThisIsAVeryLongUsernameExceedingTheLimittttt",
+    fortyPlusString: "ThisIsAVeryLongUsernameExceedingTheLimittttt",
 };
 
 
