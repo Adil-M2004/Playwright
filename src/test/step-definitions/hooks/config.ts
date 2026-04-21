@@ -13,6 +13,10 @@ export const config = {
     password: process.env.PASSWORD || "admin123",
     selectField: "-- Select --",
     fortyPlusString: "ThisIsAVeryLongUsernameExceedingTheLimittttt",
+    newUserUsername: "newAdmin",
+    newUserPassword: "newAdminPass123",
+    employeeName: "John Doe"
+
 };
 
 

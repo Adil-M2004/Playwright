@@ -1,5 +1,5 @@
 import { Page, Locator } from "@playwright/test";
-import { config, configTest } from '../step-definitions/hooks/config'; // Import the config 
+import { config } from '../step-definitions/hooks/config'; // Import the config 
 //import { url } from "node:inspector";
 
 
@@ -30,7 +30,7 @@ export class NavigationPage {
 
    //NAVIAGTE TO URL of WEBSITE
     async goto() {
-        await this.page.goto(configTest.url);
+        await this.page.goto(config.url);
   }
 
     

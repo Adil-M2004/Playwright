@@ -40,6 +40,8 @@ const common = `./src/test/features/*.feature \
     passwordReset: `${common} --tags "@passwordReset"`,
     session: `${common} --tags "@session"`,
     loginPageAssertion: `${common} --tags "@loginPageAssertion"`,
+    userCreation: `${common} --tags "@userCreation"`,
+    passwordMasking: `${common} --tags "@passwordMasking"`,
 
   }
 

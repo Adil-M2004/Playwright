@@ -45,6 +45,13 @@ Feature: Admin Functionality
     And the user confirms the deletion in the Are you Sure? modal
     Then the user no longer sees those records   
 
+ #IMPLEMENTATION NEEDED FOR BELOW SCENARIO
+  @userCreation 
+  Scenario: Admin creates a new user successfully
+    When the user clicks on the ADD button to add a new user
+    And the user fills out all required fields with valid data
+    Then the user sees new user in the Records Found list
+
   @session
   Scenario: User stays logged-in after Logging-in & closing tab & reopening the application
     When I close the browser tab

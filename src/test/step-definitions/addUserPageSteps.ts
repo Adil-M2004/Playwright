@@ -39,3 +39,26 @@ Then('the Status field should be set to select by default', async () => {
 Then('the user sees the form for adding a user', async () => {
     await getAddUserPage().verifyIsOnAddUserPage();
 });
+
+
+When('the user fills out all required fields with valid data', async () => {
+    await getAddUserPage().adminUserRole();
+
+    await getAddUserPage().enterEmployeeName(config.employeeName);
+    await getAddUserPage().selectStatus();
+    await getAddUserPage().enterUsername(config.newUserUsername);
+    
+     // Step 1: Click the admin option from the dropdown
+        // Step 2: Select "Enabled" from the dropdown options
+    await getAddUserPage().enterPassword(config.newUserPassword);
+    await getAddUserPage().enterConfirmPassword(config.newUserPassword);
+
+
+    await getAddUserPage().clickSave();
+
+});
+
+
+Then('the user sees new user in the Records Found list', async () => {
+    //await getAddUserPage().verifyNewUserInRecordsFound(config.newUserUsername);
+});

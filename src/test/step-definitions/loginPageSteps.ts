@@ -21,7 +21,7 @@ Given('I login as an admin', async () => {
     await loginPage.login(config.username, config.password);
     
     // Using existing NavigationPage for the sidebar click
-    await nav.goToAdmin(); //this mabye not working!!!
+    await nav.goToAdmin(); 
 
 });
 
@@ -100,4 +100,9 @@ When('the user types non-existent username into the username field', async () =>
 
 When('the user types non-existent password into the password field', async () => {
     await getLoginPage().passwordInput.fill(config.nonExistentPassword);
+});
+
+Then('the password field should mask the input with dots or asterisks', async () => {
+    const type = await getLoginPage().passwordInput.getAttribute('type');
+    expect(type).toBe('password');
 });

@@ -65,5 +65,11 @@ Feature: Login to OrangeHRM
   Scenario: Password reset modal shows up properly
     When I click the Forget your password? link
     Then i should see a modal to reset password
+  
+  @passwordMasking
+  Scenario: Password field should mask the input
+    When I click on the password field
+    And I type into the password field
+    Then the password field should mask the input with dots or asterisks
 
  
