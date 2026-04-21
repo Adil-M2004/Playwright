@@ -2,9 +2,7 @@
 
 ## Steps to complete:
 
-1. Add "Password Masking" Gherkin test case
-
-1.1. Make Locators for locating and Assettions More Robust by spicifying "TEXT WITHIN ELEMENT"
+1. 
 
 2. POM Improvment, step_definitions should only contain mathods and should be simple - WORK IN PROGRESS
 

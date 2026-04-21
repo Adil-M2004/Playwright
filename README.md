@@ -26,9 +26,11 @@ _______________________________________________________________
 **IMPORTANT NOTICE**
 Sometimes Test(s) can fail due to:
 - The website (OrangeHRM) changing lanuages (Chinese, german etc....)
-- Insufficient amount of records available for test to run
+- Insufficient amount of records available for test to run(FOR THE DELETION TEST CASES)
 
 REPORTS
 __________________________
 To run reports on test(s) insert following at the end of "cucumberWithTS" in "package.json"
 - -f json:./reports/report.json
+
+- Thge reports also include Screenshots of Failures, if they occur

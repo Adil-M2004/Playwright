@@ -7,11 +7,12 @@ import { config } from '../step-definitions/hooks/config';
 
 // Helper to get the AddUserPage instance
 const getAddUserPage = () => new AddUserPage(pageFixture.page);
+const getNav = () => new NavigationPage(pageFixture.page);
 
 When('the user clicks on the ADD button to add a new user', async () => {
     const nav = new NavigationPage(pageFixture.page);
     await nav.addUser.click();
-    
+
     await getAddUserPage().verifyIsOnAddUserPage();
 });
 
@@ -45,11 +46,12 @@ When('the user fills out all required fields with valid data', async () => {
     await getAddUserPage().adminUserRole();
 
     await getAddUserPage().enterEmployeeName(config.employeeName);
+    await pageFixture.page.pause();
     await getAddUserPage().selectStatus();
     await getAddUserPage().enterUsername(config.newUserUsername);
-    
-     // Step 1: Click the admin option from the dropdown
-        // Step 2: Select "Enabled" from the dropdown options
+
+    // Step 1: Click the admin option from the dropdown
+    // Step 2: Select "Enabled" from the dropdown options
     await getAddUserPage().enterPassword(config.newUserPassword);
     await getAddUserPage().enterConfirmPassword(config.newUserPassword);
 
@@ -60,5 +62,23 @@ When('the user fills out all required fields with valid data', async () => {
 
 
 Then('the user sees new user in the Records Found list', async () => {
-    //await getAddUserPage().verifyNewUserInRecordsFound(config.newUserUsername);
+    await getAddUserPage().verifyNewUserInRecordsFound(config.newUserUsername);
+});
+
+// --- Required Fields Validation Scenario ---
+Then('the user clicks the Save button without filling out any fields', async () => {
+    await getAddUserPage().clickSave();
+});
+
+Then('the user sees validation messages for all required fields', async () => {
+    await getAddUserPage().verifyRequiredFieldMessages();
+});
+
+// --- Cancel Button Scenario ---
+When('the user clicks the Cancel button', async () => {
+    await getAddUserPage().clickCancel();
+});
+
+Then('the user should be navigated back to the User Management page', async () => {
+    await getNav().addUserButtonVisible();
 });

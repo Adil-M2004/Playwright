@@ -42,7 +42,8 @@ const common = `./src/test/features/*.feature \
     loginPageAssertion: `${common} --tags "@loginPageAssertion"`,
     userCreation: `${common} --tags "@userCreation"`,
     passwordMasking: `${common} --tags "@passwordMasking"`,
-
+    userCreationValidation: `${common} --tags "@userCreationValidation"`,
+    userCreationCancel: `${common} --tags "@userCreationCancel"`,
   }
 
   //Get the third command-line argument and assign it to the profile

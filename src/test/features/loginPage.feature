@@ -2,6 +2,6 @@
 Feature: Login Page Appears
   
   @loginPageAssertion
-  Scenario: Login page works preoperly
+  Scenario: Test the Login Page is Displayed
     When I navigate to the login page
     Then the login page should be displayed

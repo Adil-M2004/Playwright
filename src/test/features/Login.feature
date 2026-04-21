@@ -30,7 +30,7 @@ Feature: Login to OrangeHRM
     
   #Negetive Path - cucumber experession
   @invalidLogin
-  Scenario: Login with invalid credentials as Admin
+  Scenario: Login with invalid Username as Admin
     When I click on the username field
     And I type a specific name into the username field "Admin11"
     And I click on the password field
@@ -48,7 +48,7 @@ Feature: Login to OrangeHRM
 #Negetive Path
 
   @emptyUsername
-  Scenario: Verify validation messages with no password credentials
+  Scenario: Verify validation messages with no username credentials
     When I click on the password field
     And I type into the password field
     And i click on the login button

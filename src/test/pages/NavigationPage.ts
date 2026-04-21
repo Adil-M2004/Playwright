@@ -1,4 +1,4 @@
-import { Page, Locator } from "@playwright/test";
+import { Page, Locator, expect } from "@playwright/test";
 import { config } from '../step-definitions/hooks/config'; // Import the config 
 //import { url } from "node:inspector";
 
@@ -31,7 +31,12 @@ export class NavigationPage {
    //NAVIAGTE TO URL of WEBSITE
     async goto() {
         await this.page.goto(config.url);
-  }
+    } 
+
+    async addUserButtonVisible() {
+        await expect(this.addUser).toBeVisible();
+    }
+
 
     
 }
