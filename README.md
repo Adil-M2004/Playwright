@@ -3,7 +3,7 @@ _______________________________________________________________
 # About Project
 This playwright project included Gherkin Test cases which tests a web application called ORANGE HRM.
 
-**Nameing Convantion** - camelCase
+**Naming Convantion** - camelCase
 _________________________________________________________________
 Prerequisites - 
 
@@ -34,3 +34,8 @@ To run reports on test(s) insert following at the end of "cucumberWithTS" in "pa
 - -f json:./reports/report.json
 
 - Thge reports also include Screenshots of Failures, if they occur
+
+**Page Object Models(POM)**
+________________________________________________
+
+- Each page of the website being tested has its own POM, which declares and stores all the page Objects(elements) and actions taken by/to the objects.
