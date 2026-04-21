@@ -11,19 +11,18 @@ Prerequisites -
 
 - Package Manager: npm, node.
 
-- Execution Command(CUSTOM SCRIPT): npm run cucumberWithTS
-
 **UPDATE: New and more efficient way to execute singular scenarios or Files using TAGS**
 If you want to exectue Only ONE SCENARIO or Only ONE feature file, The Command for that is:
 
 - npm run cucumber <tag_name>
+______________________________________________
 
 - Currently there are 3 Feature files that can be run, they are the following
 - npm run cucumber admin
 - npm run cucumber login
 - npm run cucumber loginPage
 
-**REPLACE <tag_name> with a tag that is included in src/index.ts & in any of the feature files**
+**FOR OTHER SCENARIO'S, REPLACE <tag_name> with a tag that is included in src/index.ts & in any of the feature files**
 **NEW TAG MUST BE DECLARED IN INDEX.TS BEFORE USE**
 
 
