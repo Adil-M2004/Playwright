@@ -9,7 +9,9 @@ Prerequisites -
 
 - Node.js: Version 20 or higher.
 
-- Package Manager: npm, node.
+- Package Manager: npm, nod
+
+- Download Extension: "Cucumber (Gherkin) Full Support" 
 
 **UPDATE: New and more efficient way to execute singular scenarios or Files using TAGS**
 If you want to exectue Only ONE SCENARIO or Only ONE feature file, The Command for that is:
