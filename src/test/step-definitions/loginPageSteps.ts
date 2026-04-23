@@ -61,7 +61,7 @@ When('I type a specific password into the password field {string}', async (passw
 
 // Validations
 Then('I should see a validation message saying Invalid credentials', async () => {
-    await expect(getLoginPage().invalidCredentialsMessage).toBeVisible();
+    await getLoginPage().invalidCredentials();
 });
 
 Then('I should see a validation message saying Required', async () => {

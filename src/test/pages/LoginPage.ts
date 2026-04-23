@@ -32,4 +32,8 @@ export class LoginPage {
         await this.passwordInput.fill(password);
         await this.loginButton.click();
     }
+
+    async invalidCredentials() {
+        await expect(this.invalidCredentialsMessage).toBeVisible();
+    }
 }

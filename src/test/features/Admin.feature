@@ -47,7 +47,7 @@ Feature: Admin Functionality
 
  #FAILS FOR UNKNOWN REASON
   # @userCreation 
-  # Scenario: Admin creates a new user successfully
+  # Scenario: Verify that an Admin can successfully create a new user with all required fields
   #   When the user clicks on the ADD button to add a new user
   #   And the user fills out all required fields with valid data
   #   Then the user sees new user in the Records Found list

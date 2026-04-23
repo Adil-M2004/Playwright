@@ -1,0 +1,153 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "login-to-orangehrm;login-with-invalid-username-as-admin",
+        "keyword": "Scenario",
+        "line": 33,
+        "name": "Login with invalid Username as Admin",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1136392100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "src\\test\\step-definitions\\loginPageSteps.ts:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1159514900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 34,
+            "name": "I click on the username field",
+            "match": {
+              "location": "src\\test\\step-definitions\\loginPageSteps.ts:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 24623499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 35,
+            "name": "I type a specific name into the username field \"Admin11\"",
+            "match": {
+              "location": "src\\test\\step-definitions\\loginPageSteps.ts:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14792999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 36,
+            "name": "I click on the password field",
+            "match": {
+              "location": "src\\test\\step-definitions\\loginPageSteps.ts:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 45679899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 37,
+            "name": "I type a specific password into the password field \"admin123\"",
+            "match": {
+              "location": "src\\test\\step-definitions\\loginPageSteps.ts:58"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12227399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 38,
+            "name": "i click on the login button",
+            "match": {
+              "location": "src\\test\\step-definitions\\loginPageSteps.ts:49"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 36833200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 39,
+            "name": "I should see a validation message saying Invalid credentials",
+            "match": {
+              "location": "src\\test\\step-definitions\\loginPageSteps.ts:63"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 897988500
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 473848199
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@login",
+            "line": 1
+          },
+          {
+            "name": "@invalidLogin",
+            "line": 32
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "login-to-orangehrm",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Login to OrangeHRM",
+    "tags": [
+      {
+        "name": "@regression",
+        "line": 1
+      },
+      {
+        "name": "@login",
+        "line": 1
+      }
+    ],
+    "uri": "src\\test\\features\\login.feature"
+  }
+]

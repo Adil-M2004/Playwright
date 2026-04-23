@@ -20,9 +20,9 @@ If you want to exectue Only ONE SCENARIO or Only ONE feature file, The Command f
 ______________________________________________
 
 - Currently there are 3 Feature files that can be run, they are the following
-- npm run cucumber admin
-- npm run cucumber login
-- npm run cucumber loginPage
+- npm run cucumber admin = **TARGETS ADMIN TESTS ONLY**
+- npm run cucumber login = **TARGETS LOGIN TESTS ONLY**
+- npm run cucumber loginPage = **TARGETS LOGINPAGE TEST ONLY**
 
 **FOR OTHER SCENARIO'S, REPLACE <tag_name> with a tag that is included in src/index.ts & in any of the feature files**
 **NEW TAG MUST BE DECLARED IN INDEX.TS BEFORE USE**
