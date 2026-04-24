@@ -18,8 +18,6 @@ const getAdminPage = () => {
 
 Then('I should be logged in and see the dashboard page with the title Dashboard', async () => {
     await getAdminPage().dashboardHeader.waitFor();
-    // const allPages = await pageFixture.context.pages();
-    // pageFixture.page = allPages[allPages.length - 1];
     await pageFixture.page.bringToFront();
     await pageFixture.page.setViewportSize({ width: 1280, height: 720 });
 });
@@ -57,7 +55,7 @@ When('the user confirms the deletion in the Are you Sure? modal', async () => {
     await admin.yesDeleteBtn.click();
 });
 
-When('the user cancels the delection in the Are you Sure? modal', async () => {
+When('the user cancels the deletion in the Are you Sure? modal', async () => {
     const admin = getAdminPage();
     await expect(admin.confirmationModal).toBeVisible();
     await admin.noCancelBtn.click();
@@ -92,7 +90,7 @@ When('the user clicks on the checkboxes for the first {int} records under Record
 });
 
 When('the user clicks Delete Selected button', async () => {
-    await getAdminPage().deleteSelectedBtn.click();
+    await getAdminPage().DeleteSelectedUsers();
 });
 
 Then('the user no longer sees those records', async () => {

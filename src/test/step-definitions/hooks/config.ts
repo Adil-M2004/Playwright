@@ -15,7 +15,7 @@ export const config = {
     fortyPlusString: "ThisIsAVeryLongUsernameExceedingTheLimittttt",
     newUserUsername: "newAdmin",
     newUserPassword: "newAdminPass123",
-    employeeName: "John"
+    employeeName: "John",
 
 };
 

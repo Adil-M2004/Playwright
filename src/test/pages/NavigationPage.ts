@@ -28,15 +28,15 @@ export class NavigationPage {
         await this.addUser.click();
     }
 
-   //NAVIAGTE TO URL of WEBSITE
+    //NAVIAGTE TO URL of WEBSITE
     async goto() {
         await this.page.goto(config.url);
-    } 
+    }
 
     async addUserButtonVisible() {
         await expect(this.addUser).toBeVisible();
     }
 
 
-    
+
 }
