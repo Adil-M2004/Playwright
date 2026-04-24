@@ -4,6 +4,7 @@ import { config } from './hooks/config';
 import { expect, chromium } from '@playwright/test';
 import { LoginPage } from "../pages/LoginPage";
 import { NavigationPage } from "../pages/NavigationPage";
+import logger from '../logger/logger';
 
 // Helper to keep the code DRY
 const getLoginPage = () => new LoginPage(pageFixture.page);
@@ -11,6 +12,7 @@ const getLoginPage = () => new LoginPage(pageFixture.page);
 Given('I navigate to the login page', async () => {
     await getLoginPage().navigateTo(config.url);
     await expect(getLoginPage().loginHeader).toBeVisible();
+    logger.info('Navigated to login page');
 });
 
 Given('I login as an admin', async () => {

@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-
   "scripts": {
     "cucumberWithTS": "cucumber-js src/test/features/*.feature --require-module ts-node/register --require src/test/step-definitions/**/**/*.ts --require src/test/utils/cucumber-timeout.ts -f json:./reports/report.json --tags @selfDeletion",
     "precucumber": "rimraf reports && mkdir reports",
@@ -27,6 +26,8 @@
     "typescript": "^6.0.2"
   },
   "dependencies": {
-    "dotenv": "^17.4.2"
+    "@colors/colors": "^1.6.0",
+    "dotenv": "^17.4.2",
+    "winston": "^3.19.0"
   }
 }
