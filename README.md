@@ -4,6 +4,13 @@ _______________________________________________________________
 This playwright project included Gherkin Test cases which tests a web application called ORANGE HRM.
 
 **Naming Convantion** - camelCase
+
+_______________________________________________________________
+**IMPORTANT NOTICE**
+Sometimes Test(s) can fail due to:
+- The website (OrangeHRM) changing lanuages (Chinese, german etc....)
+- Insufficient amount of records available for test to run(FOR THE DELETION TEST CASES)
+
 _________________________________________________________________
 Prerequisites - 
 
@@ -27,12 +34,7 @@ ______________________________________________
 **FOR OTHER SCENARIO'S, REPLACE <tag_name> with a tag that is included in src/index.ts & in any of the feature files**
 **NEW TAG MUST BE DECLARED IN INDEX.TS BEFORE USE**
 
-
-_______________________________________________________________
-**IMPORTANT NOTICE**
-Sometimes Test(s) can fail due to:
-- The website (OrangeHRM) changing lanuages (Chinese, german etc....)
-- Insufficient amount of records available for test to run(FOR THE DELETION TEST CASES)
+_________________________________________________________________
 
 **REPORTS**
 __________________________
@@ -46,3 +48,8 @@ To run reports on test(s) insert following at the end of "cucumberWithTS" in "pa
 ________________________________________________
 
 - Each page of the website being tested has its own POM, which declares and stores all the page Objects(elements) and actions taken by/to the objects.
+_________________________________________________________________
+
+**Xray Automated Reports**
+_________________________________________________________
+- By Running a test "npm run cucumber <tag>", it will automatically trigger ana export of the JSON report to your XRAY

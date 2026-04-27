@@ -7,8 +7,9 @@
     "cucumberWithTS": "cucumber-js src/test/features/*.feature --require-module ts-node/register --require src/test/step-definitions/**/**/*.ts --require src/test/utils/cucumber-timeout.ts -f json:./reports/report.json --tags @selfDeletion",
     "precucumber": "rimraf reports && mkdir reports",
     "cucumber": "npx cucumber-js && ts-node ./src/index.ts",
-    "upload-xray": "node ./src/scripts/uploadToXray.js",
-    "test:xray": "npm run cucumber && npm run upload-xray"
+    "postcucumber": "node ./src/scripts/uploadToXray.js",
+    "test:xray": "npm run cucumber --",
+    "posttest:xray": "npm run upload-xray"
   },
   "keywords": [],
   "author": "",
