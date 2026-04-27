@@ -4,108 +4,69 @@
     "elements": [
       {
         "description": "",
-        "id": "login-to-orangehrm;login-with-valid-credentials-as-admin",
+        "id": "admin-functionality;user-is-informed-about-the-maximum-username-length",
         "keyword": "Scenario",
-        "line": 18,
-        "name": "Login with valid credentials as Admin",
+        "line": 9,
+        "name": "User is informed about the maximum username length",
         "steps": [
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1569643600
+              "duration": 2362179400
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 6,
-            "name": "I navigate to the login page",
+            "line": 5,
+            "name": "I login as an admin",
             "match": {
-              "location": "src\\test\\step-definitions\\loginPageSteps.ts:12"
+              "location": "src\\test\\step-definitions\\loginPageSteps.ts:18"
             },
             "result": {
               "status": "passed",
-              "duration": 1925480200
+              "duration": 3349521800
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 19,
-            "name": "I click on the username field",
+            "line": 10,
+            "name": "the user clicks on the ADD button to add a new user",
             "match": {
-              "location": "src\\test\\step-definitions\\loginPageSteps.ts:30"
+              "location": "src\\test\\step-definitions\\addUserPageSteps.ts:12"
             },
             "result": {
               "status": "passed",
-              "duration": 92673300
+              "duration": 874290900
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 20,
-            "name": "I type into the username field",
+            "line": 11,
+            "name": "the user enters more than 40 characters into the username field",
             "match": {
-              "location": "src\\test\\step-definitions\\loginPageSteps.ts:34"
+              "location": "src\\test\\step-definitions\\addUserPageSteps.ts:19"
             },
             "result": {
               "status": "passed",
-              "duration": 9933600
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 21,
-            "name": "I click on the password field",
-            "match": {
-              "location": "src\\test\\step-definitions\\loginPageSteps.ts:43"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 32458400
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 22,
-            "name": "I type into the password field",
-            "match": {
-              "location": "src\\test\\step-definitions\\loginPageSteps.ts:47"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 9999099
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 23,
-            "name": "i click on the login button",
-            "match": {
-              "location": "src\\test\\step-definitions\\loginPageSteps.ts:51"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 39831200
+              "duration": 14200499
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 24,
-            "name": "I should be logged in and see the dashboard page with the title Dashboard",
+            "line": 12,
+            "name": "the user sees a validation message for the username field",
             "match": {
-              "location": "src\\test\\step-definitions\\adminPageSteps.ts:19"
+              "location": "src\\test\\step-definitions\\addUserPageSteps.ts:24"
             },
             "result": {
               "status": "passed",
-              "duration": 1397487100
+              "duration": 5684499
             }
           },
           {
@@ -113,7 +74,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 536585100
+              "duration": 457025200
             }
           }
         ],
@@ -123,35 +84,886 @@
             "line": 1
           },
           {
-            "name": "@login",
+            "name": "@admin",
             "line": 1
           },
           {
-            "name": "@IIA-188",
-            "line": 16
+            "name": "@IIA-66",
+            "line": 7
           },
           {
-            "name": "@validLogin",
-            "line": 17
+            "name": "@maxLength",
+            "line": 8
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "admin-functionality;password-field-enforces-security-strength-of-password",
+        "keyword": "Scenario",
+        "line": 16,
+        "name": "password field enforces security strength of password",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1219832700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I login as an admin",
+            "match": {
+              "location": "src\\test\\step-definitions\\loginPageSteps.ts:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3518488499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 17,
+            "name": "the user clicks on the ADD button to add a new user",
+            "match": {
+              "location": "src\\test\\step-definitions\\addUserPageSteps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 881763600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "the user enters weak password into password field",
+            "match": {
+              "location": "src\\test\\step-definitions\\addUserPageSteps.ts:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17146100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 19,
+            "name": "a message appears stating weak",
+            "match": {
+              "location": "src\\test\\step-definitions\\addUserPageSteps.ts:32"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5256799
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 435574700
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@admin",
+            "line": 1
+          },
+          {
+            "name": "@IIA-65",
+            "line": 14
+          },
+          {
+            "name": "@securityStrength",
+            "line": 15
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "admin-functionality;status-field(active/inactive)-is-not-selected-by-default",
+        "keyword": "Scenario",
+        "line": 23,
+        "name": "Status field(Active/Inactive) is NOT selected by default",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1156869699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I login as an admin",
+            "match": {
+              "location": "src\\test\\step-definitions\\loginPageSteps.ts:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3351496500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 24,
+            "name": "the user clicks on the ADD button to add a new user",
+            "match": {
+              "location": "src\\test\\step-definitions\\addUserPageSteps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 895093899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 25,
+            "name": "the Status field should be set to select by default",
+            "match": {
+              "location": "src\\test\\step-definitions\\addUserPageSteps.ts:36"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7197000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 443387200
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@admin",
+            "line": 1
+          },
+          {
+            "name": "@IIA-76",
+            "line": 21
+          },
+          {
+            "name": "@statusField",
+            "line": 22
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "admin-functionality;admin-deletes-a-user-successfully",
+        "keyword": "Scenario",
+        "line": 29,
+        "name": "Admin Deletes a user successfully",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1167813500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I login as an admin",
+            "match": {
+              "location": "src\\test\\step-definitions\\loginPageSteps.ts:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3557624800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 30,
+            "name": "the user clicks the Trash Can delete icon on the third record in the Records Found list",
+            "match": {
+              "location": "src\\test\\step-definitions\\adminPageSteps.ts:46"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 869039700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 31,
+            "name": "the user confirms the deletion in the Are you Sure? modal",
+            "match": {
+              "location": "src\\test\\step-definitions\\adminPageSteps.ts:52"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 63003000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 32,
+            "name": "the user no longer sees that record in the Records Found list",
+            "match": {
+              "location": "src\\test\\step-definitions\\adminPageSteps.ts:64"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5417299
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 407875700
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@admin",
+            "line": 1
+          },
+          {
+            "name": "@IIA-62",
+            "line": 27
+          },
+          {
+            "name": "@deletion",
+            "line": 28
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "admin-functionality;impossible-for-admin-to-self-delete-their-account",
+        "keyword": "Scenario",
+        "line": 36,
+        "name": "Impossible for Admin to Self-Delete their account",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1095706599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I login as an admin",
+            "match": {
+              "location": "src\\test\\step-definitions\\loginPageSteps.ts:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3332512300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 37,
+            "name": "the user clicks the Trash Can delete icon of username Admin",
+            "match": {
+              "location": "src\\test\\step-definitions\\adminPageSteps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 894109400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 38,
+            "name": "the page should not display the confirmation modal with the message Are you Sure?",
+            "match": {
+              "location": "src\\test\\step-definitions\\adminPageSteps.ts:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5660799
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 415838300
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@admin",
+            "line": 1
+          },
+          {
+            "name": "@IIA_70",
+            "line": 34
+          },
+          {
+            "name": "@selfDeletion",
+            "line": 35
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "admin-functionality;the-user-successfully-cancels-user-deletion",
+        "keyword": "Scenario",
+        "line": 42,
+        "name": "The user successfully cancels user deletion",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1135322299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I login as an admin",
+            "match": {
+              "location": "src\\test\\step-definitions\\loginPageSteps.ts:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3166158500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 43,
+            "name": "the user clicks the Trash Can delete icon on the third record in the Records Found list",
+            "match": {
+              "location": "src\\test\\step-definitions\\adminPageSteps.ts:46"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 858102999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 44,
+            "name": "the user cancels the deletion in the Are you Sure? modal",
+            "match": {
+              "location": "src\\test\\step-definitions\\adminPageSteps.ts:58"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 47139799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 45,
+            "name": "the user still sees that record in the Records Found list",
+            "match": {
+              "location": "src\\test\\step-definitions\\adminPageSteps.ts:69"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5423999
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 428416499
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@admin",
+            "line": 1
+          },
+          {
+            "name": "@IIA-63",
+            "line": 40
+          },
+          {
+            "name": "@cancelDeletion",
+            "line": 41
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "admin-functionality;bulk-deletion-of-3-users",
+        "keyword": "Scenario",
+        "line": 49,
+        "name": "Bulk deletion of 3 users",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1131827700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I login as an admin",
+            "match": {
+              "location": "src\\test\\step-definitions\\loginPageSteps.ts:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3392874700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 50,
+            "name": "the user clicks on the checkboxes for the first 3 records under Records Found",
+            "match": {
+              "location": "src\\test\\step-definitions\\adminPageSteps.ts:88"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 954555800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 51,
+            "name": "the user clicks Delete Selected button",
+            "match": {
+              "location": "src\\test\\step-definitions\\adminPageSteps.ts:92"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 85068200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 52,
+            "name": "the user confirms the deletion in the Are you Sure? modal",
+            "match": {
+              "location": "src\\test\\step-definitions\\adminPageSteps.ts:52"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 51826000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 53,
+            "name": "the user no longer sees those records",
+            "match": {
+              "location": "src\\test\\step-definitions\\adminPageSteps.ts:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 881000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 424816899
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@admin",
+            "line": 1
+          },
+          {
+            "name": "@IIA-77",
+            "line": 47
+          },
+          {
+            "name": "@bulkDeletion",
+            "line": 48
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "admin-functionality;admin-sees-validation-messages-when-creating-a-user-with-empty-required-fields",
+        "keyword": "Scenario",
+        "line": 64,
+        "name": "Admin sees validation messages when creating a user with empty required fields",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1147220700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I login as an admin",
+            "match": {
+              "location": "src\\test\\step-definitions\\loginPageSteps.ts:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3150151700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 65,
+            "name": "the user clicks on the ADD button to add a new user",
+            "match": {
+              "location": "src\\test\\step-definitions\\addUserPageSteps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 864268000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 66,
+            "name": "the user clicks the Save button without filling out any fields",
+            "match": {
+              "location": "src\\test\\step-definitions\\addUserPageSteps.ts:69"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 23908900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 67,
+            "name": "the user sees validation messages for all required fields",
+            "match": {
+              "location": "src\\test\\step-definitions\\addUserPageSteps.ts:73"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12709900
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 429214200
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@admin",
+            "line": 1
+          },
+          {
+            "name": "@IIA-183",
+            "line": 62
+          },
+          {
+            "name": "@userCreationValidation",
+            "line": 63
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "admin-functionality;admin-cancels-user-creation-and-returns-to-user-management-page",
+        "keyword": "Scenario",
+        "line": 71,
+        "name": "Admin cancels user creation and returns to User Management page",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1087380100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I login as an admin",
+            "match": {
+              "location": "src\\test\\step-definitions\\loginPageSteps.ts:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3607999900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 72,
+            "name": "the user clicks on the ADD button to add a new user",
+            "match": {
+              "location": "src\\test\\step-definitions\\addUserPageSteps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 852214600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 73,
+            "name": "the user clicks the Cancel button",
+            "match": {
+              "location": "src\\test\\step-definitions\\addUserPageSteps.ts:78"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 240046499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 74,
+            "name": "the user should be navigated back to the User Management page",
+            "match": {
+              "location": "src\\test\\step-definitions\\addUserPageSteps.ts:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 393414099
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 450354800
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@admin",
+            "line": 1
+          },
+          {
+            "name": "@IIA-190",
+            "line": 69
+          },
+          {
+            "name": "@userCreationCancel",
+            "line": 70
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "admin-functionality;user-stays-logged-in-after-logging-in-&-closing-tab-&-reopening-the-application",
+        "keyword": "Scenario",
+        "line": 78,
+        "name": "User stays logged-in after Logging-in & closing tab & reopening the application",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1141477899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I login as an admin",
+            "match": {
+              "location": "src\\test\\step-definitions\\loginPageSteps.ts:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3495257900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 79,
+            "name": "I close the browser tab",
+            "match": {
+              "location": "src\\test\\step-definitions\\loginPageSteps.ts:78"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9995000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 80,
+            "name": "I reopen the application",
+            "match": {
+              "location": "src\\test\\step-definitions\\loginPageSteps.ts:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 619729200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 81,
+            "name": "I should be logged in and see the dashboard page with the title Dashboard",
+            "match": {
+              "location": "src\\test\\step-definitions\\adminPageSteps.ts:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 273478000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 423545700
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@admin",
+            "line": 1
+          },
+          {
+            "name": "@IIA-59",
+            "line": 76
+          },
+          {
+            "name": "@session",
+            "line": 77
           }
         ],
         "type": "scenario"
       }
     ],
-    "id": "login-to-orangehrm",
+    "id": "admin-functionality",
     "line": 2,
     "keyword": "Feature",
-    "name": "Login to OrangeHRM",
+    "name": "Admin Functionality",
     "tags": [
       {
         "name": "@regression",
         "line": 1
       },
       {
-        "name": "@login",
+        "name": "@admin",
         "line": 1
       }
     ],
-    "uri": "src\\test\\features\\login.feature"
+    "uri": "src\\test\\features\\admin.feature"
   }
 ]

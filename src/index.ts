@@ -1,4 +1,8 @@
 import { exec } from "child_process";
+import dotenv from 'dotenv';
+dotenv.config({ path: '.env' });
+
+const parallelValue = process.env.PARALLEL || '1'; // Default to 1 if not set
 
 /// <reference types="node" />
 
@@ -7,7 +11,8 @@ const common = `./src/test/features/*.feature \
   --require-module ts-node/register \
   --require ./src/test/step-definitions/**/**/*.ts \
   --require ./src/test/utils/cucumber-timeout.ts \
-  --format json:./reports/report.json`;
+  --format json:./reports/report.json \
+  --parallel ${parallelValue}`;
 
   //Define an interface for the profiles object
   // it defines an interface where each key is a string and its value is also a string
