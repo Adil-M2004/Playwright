@@ -8,6 +8,7 @@
     "precucumber": "rimraf reports && mkdir reports",
     "cucumber": "npx cucumber-js && ts-node ./src/index.ts",
     "postcucumber": "node ./src/scripts/uploadToXray.js",
+    "test:k6": "k6 run src/performanceTest/simpleTest.js",
     "test:xray": "npm run cucumber --",
     "posttest:xray": "npm run upload-xray"
   },
@@ -19,6 +20,7 @@
     "@cucumber/cucumber": "^12.7.0",
     "@faker-js/faker": "^10.4.0",
     "@playwright/test": "^1.59.1",
+    "@types/k6": "^1.7.0",
     "@types/node": "^25.6.0",
     "axios": "^1.15.2",
     "playwright-bdd": "^8.5.0",
